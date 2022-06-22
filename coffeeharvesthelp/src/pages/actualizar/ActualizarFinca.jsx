@@ -1,6 +1,6 @@
 import React from "react";
-import Inputs from "./Inputs";
-import Boton from '../boton/Boton';
+import Inputs from "../../components/actualizar/Inputs";
+import Boton from "../../components/actualizar/Button";
 
 function ActualizarFinca(props) {
     

@@ -1,9 +1,9 @@
 import React from "react";
-import Inputs from "./Inputs";
-import Boton from '../boton/Boton';
-import Select from './select';
+import Inputs from "../../components/actualizar/Inputs";
+import Select from '../../components/actualizar/select';
+import Boton from '../../components/actualizar/Button';
 
-function Añadir(props) {
+function ActualizarLote(props) {
     
     return(
         <div className="flex justify-center z-0">
@@ -33,4 +33,4 @@ function Añadir(props) {
         </div>
     );
 }
-export default Añadir;
+export default ActualizarLote;
