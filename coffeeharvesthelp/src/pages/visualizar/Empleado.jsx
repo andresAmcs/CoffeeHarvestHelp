@@ -1,4 +1,5 @@
 import React from "react";
+import Grafica from "../../components/grafica/Grafica"
 import Dato from "../../components/visualizar/Dato"
 
 function VisualizarEmpleado() {
@@ -18,6 +19,9 @@ function VisualizarEmpleado() {
                         <Dato clave="Genero" valor="M"/>
                         <Dato clave="Correo" valor="Perez@gmail.com"/>
                         <Dato clave="Tipo Contrato" valor="Por Kilos"/>
+                    </div>
+                    <div className="bg-white rounded-lg w-[90%] mx-auto my-5 shadow-sm">
+                        <Grafica/>
                     </div>
                 </div>
             </div>

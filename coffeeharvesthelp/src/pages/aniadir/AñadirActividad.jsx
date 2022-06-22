@@ -1,6 +1,6 @@
 import React from "react";
-import Inputs from "./Inputs";
-import Boton from '../boton/Boton';
+import Inputs from "../../components/aniadir/Inputs";
+import Boton from "../../components/aniadir/Buttons";
 
 function Añadir(props) {
     

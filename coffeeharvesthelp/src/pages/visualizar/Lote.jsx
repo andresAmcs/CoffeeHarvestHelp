@@ -1,4 +1,5 @@
 import React from "react";
+import Grafica from "../../components/grafica/Grafica"
 import Dato from "../../components/visualizar/Dato"
 
 function VisualizarLote() {
@@ -10,7 +11,7 @@ function VisualizarLote() {
             <div className="h-[90%] w-[80%] bg-[#e69b75] mt-10 mb-10 rounded-2xl">
                 <div className="mt-10 text-xl">                
                     <h2 className="font-medium leading-tight text-4xl mt-0 mb-2 text-stone-900 text-center">Visualizar Lote</h2>                                                        
-                    <div className="grid grid-cols-2 gap-4 p-5">                
+                    <div className="grid grid-cols-2 gap-4 p-5 w-[90%] mx-auto">                
                         <Dato clave="Id Lote" valor="123456"/>
                         <Dato clave="Nombre" valor="Hernesto"/>
                         <Dato clave="Cantidad Arboles" valor="152"/>
@@ -23,6 +24,9 @@ function VisualizarLote() {
                         <Dato clave="Tipo Siembra" valor="Triangular"/>
                         <Dato clave="Abonado" valor="Si"/>
                         <Dato clave="Plagas" valor="No"/>
+                    </div>
+                    <div className="bg-white rounded-lg w-[90%] mx-auto my-5 shadow-sm">
+                        <Grafica/>
                     </div>
                 </div>
             </div>

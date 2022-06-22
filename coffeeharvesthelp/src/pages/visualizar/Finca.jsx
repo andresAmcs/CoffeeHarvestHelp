@@ -1,4 +1,5 @@
 import React from "react";
+import Grafica from "../../components/grafica/Grafica"
 import Dato from "../../components/visualizar/Dato"
 
 function VisualizarFinca() {
@@ -14,6 +15,9 @@ function VisualizarFinca() {
                         <Dato clave="Documento" valor="123456"/>
                         <Dato clave="Nombre" valor="Fincota"/>
                         <Dato clave="Tipo Finca" valor="Ganadera"/>
+                    </div>
+                    <div className="bg-white rounded-lg w-[90%] mx-auto my-5 shadow-sm">
+                        <Grafica/>
                     </div>
                 </div>
             </div>
