@@ -6,7 +6,7 @@ function AgregarFinca(props) {
 
     return(
         <div className="flex justify-center">        
-        <div className="h-[90%] w-[90%] bg-neutral-300 my-10 rounded-2xl">            
+            <div className="h-[90%] w-[90%] bg-[#DECBA4] my-10 rounded-2xl">            
             <div className="p-4">                
                 <h2 className="font-medium leading-tight text-4xl mt-0 mb-2 text-stone-900 text-center">Seleccione la finca con la cual trabajara</h2>                                    
             </div>

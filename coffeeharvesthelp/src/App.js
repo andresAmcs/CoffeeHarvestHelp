@@ -1,10 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Navigate, Route, Routes, } from "react-router-dom";
 
-import Nav from "./components/nav/Navbar"
 import Login from "./pages/login/Login";
 import Registrar from "./pages/registrar/Registrar";
-
 import Home from "./pages/home/Home";
 
 import IndexActividad from "./pages/index/Actividad";
@@ -18,6 +16,10 @@ import VisualizarFinca from "./pages/visualizar/Finca";
 import VisualizarLote from "./pages/visualizar/Lote";
 
 import AñadirActividad from "./pages/aniadir/AñadirActividad";
+import AñadirEmpleado from "./pages/aniadir/AñadirEmpleado";
+import AñadirFinca from "./pages/aniadir/AñadirFinca";
+import AñadirLote from "./pages/aniadir/AñadirLote";
+import AñadirRegistro from "./pages/aniadir/AñadirRegistroActividad";
 
 import ActualizarActividad from "./pages/actualizar/ActualizarActividad";
 import ActualizarEmpleado from "./pages/actualizar/ActualizarEmpleado";
@@ -27,6 +29,10 @@ import ActualizarRegistro from "./pages/actualizar/ActualizarRegistroActividad";
 
 import Footer from "./pages/footer/Footer";
 
+import Andres from "./pages/nosotros/Andres";
+import Daniel from "./pages/nosotros/Daniel";
+import Simon from "./pages/nosotros/Simon";
+
 import Error404 from "./pages/404/Error404";
 
 
@@ -34,7 +40,7 @@ function App() {
   return (
     <div className="App ">
       <Router>
-        <Nav />
+
         <Routes>
 
           <Route path="/" element={<Login />}></Route>
@@ -60,6 +66,11 @@ function App() {
 
           <Route path="/aniadir/*">
             <Route path="actividad" element={<AñadirActividad />}></Route>
+            <Route path="empleado" element={<AñadirEmpleado />}></Route>
+            <Route path="finca" element={<AñadirFinca />}></Route>
+            <Route path="lote" element={<AñadirLote />}></Route>
+            <Route path="registro" element={<AñadirRegistro />}></Route>
+            <Route path="*" element={<Error404 />}></Route>
           </Route>
 
           <Route path="actualizar/*">
@@ -69,6 +80,10 @@ function App() {
             <Route path="lote" element={<ActualizarLote nombre="Lote" />}></Route>
             <Route path="registro" element={<ActualizarRegistro nombre="Registro" />}></Route>
           </Route>
+
+          {/* <Route path="nosotros/" element={}></Route> */}
+
+
 
           <Route path="*" element={<Error404 />}></Route>
 
