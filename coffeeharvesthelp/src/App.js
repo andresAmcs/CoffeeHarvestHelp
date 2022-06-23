@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Navigate, Route, Routes, } from "react-router-dom";
 
-/* import Nav from "./pages/nav/Navbar" */
+import Nav from "./components/nav/Navbar"
 import Login from "./pages/login/Login";
 import Registrar from "./pages/registrar/Registrar";
 
@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="App ">
       <Router>
-        {/* <Nav/> */}
+        <Nav />
         <Routes>
 
           <Route path="/" element={<Login />}></Route>
