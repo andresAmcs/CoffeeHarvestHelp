@@ -7,10 +7,10 @@ function Login(props) {
 
         <div className="container mx-auto">
             <div className="md:flex gap-4 md:items-center">
-                <div className="md:w-1/2 mt-2 sm:hidden md:hidden md:mx-auto lg:hidden xl:hidden 2xl:block">
+                <div className="md:w-1/2 mt-2 sm:hidden md:hidden md:mx-auto lg:hidden xl:hidden 2xl:block hidden">
                     <img src="https://www.semana.com/resizer/rH4_rbif0fmvefux9P8yPeuPOhA=/1200x675/filters:format(jpg):quality(50)//cloudfront-us-east-1.images.arcpublishing.com/semana/EMVX56K62JCS7J3BH2M4BA33RU.jpg" alt="imagen Registro de Usuarios" />
                 </div>
-                <div className="md:w-[80%] md:m-auto md:my-10 2xl:w-1/2 bg-white p-6 rounded-lg shadow-xl py-10 mt-10">
+                <div className="md:w-[80%] md:m-auto md:my-10 2xl:w-1/2 bg-white p-6 rounded-lg shadow-xl py-10 mt-10 mx-2 ">
                     <div className="w-7">
                         <h2 className="font-medium leading-tight text-4xl mt-0 mb-2 text-blue-600">Coffee harvets help</h2>
                     </div>

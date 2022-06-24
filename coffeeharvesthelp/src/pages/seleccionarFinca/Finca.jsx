@@ -1,10 +1,10 @@
 import React from "react";
-import Th from "../../components/index/Th";
-import Buttons from "../../components/index/Buttons"
+import Th from "../../components/seleccionarFinca/Th";
+import Buttons from "../../components/seleccionarFinca/Buttons"
 
 
 
-function IndexFinca(props) {
+function SeleccionarFinca(props) {
 
     return (
 
@@ -34,4 +34,4 @@ function IndexFinca(props) {
     )
 }
 
-export default IndexFinca;
+export default SeleccionarFinca;

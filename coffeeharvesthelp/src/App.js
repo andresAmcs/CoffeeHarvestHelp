@@ -7,8 +7,9 @@ import Home from "./pages/home/Home";
 
 import IndexActividad from "./pages/index/Actividad";
 import IndexEmpleado from "./pages/index/Empleado";
-import IndexFinca from "./pages/index/Finca";
 import IndexLote from "./pages/index/Lote";
+
+import SeleccionarFinca from "./pages/seleccionarFinca/Finca";
 
 import VisualizarActividad from "./pages/visualizar/Actividad";
 import VisualizarEmpleado from "./pages/visualizar/Empleado";
@@ -29,9 +30,8 @@ import ActualizarRegistro from "./pages/actualizar/ActualizarRegistroActividad";
 
 import Footer from "./pages/footer/Footer";
 
-import Andres from "./pages/nosotros/Andres";
-import Daniel from "./pages/nosotros/Daniel";
-import Simon from "./pages/nosotros/Simon";
+import Nosotros from "./pages/nosotros/Nosotros";
+import CoffeHarvestHelp from "./pages/Servicios/CoffeHarvestHelp";
 
 import Error404 from "./pages/404/Error404";
 
@@ -51,10 +51,11 @@ function App() {
           <Route path="/index/*">
             <Route path="actividad" element={<IndexActividad />}> </Route>
             <Route path="empleado" element={<IndexEmpleado ID="481464" nombres="Juan" apellidos="Montollas" />}> </Route>
-            <Route path="finca" element={<IndexFinca />}> </Route>
             <Route path="lote" element={<IndexLote />}> </Route>
             <Route path="*" element={<Error404 />}> </Route>
           </Route>
+
+          <Route path="/seleccionarFinca" element={<SeleccionarFinca />}></Route>
 
           <Route path="/visualizar/*">
             <Route path="actividad" element={<VisualizarActividad />}></Route>
@@ -79,8 +80,11 @@ function App() {
             <Route path="finca" element={<ActualizarFinca nombre="Finca" />}></Route>
             <Route path="lote" element={<ActualizarLote nombre="Lote" />}></Route>
             <Route path="registro" element={<ActualizarRegistro nombre="Registro" />}></Route>
+            <Route path="*" element={<Error404 />}></Route>
           </Route>
 
+          <Route path="/nosotros" element={<Nosotros/>}></Route>
+          <Route path="/coffeHarvestHelp" element={<CoffeHarvestHelp />}></Route>
           {/* <Route path="nosotros/" element={}></Route> */}
 
 
