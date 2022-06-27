@@ -8,10 +8,10 @@ function VisualizarEmpleado() {
 
     return(
         <div className="flex justify-center z-0">
-            <div className="h-[90%] w-[80%] bg-[#DECBA4] mt-10 mb-10 rounded-2xl">
+            <div className="h-[90%] w-[95%] sm:w-[95%] bg-[#DECBA4] my-10 rounded-2xl">
                 <div className="mt-10 text-xl">                
                     <h2 className="font-medium leading-tight text-4xl mt-0 mb-2 text-stone-900 text-center">Visualizar Empleado</h2>                                                        
-                    <div className="grid grid-cols-2 gap-4 p-5">                
+                    <div className="grid xl:grid-cols-2 sm:grid-cols-1 gap-4 p-5">                
                         <Dato clave="Documento" valor="123456"/>
                         <Dato clave="Nombres" valor="Hernesto"/>
                         <Dato clave="Apellidos" valor="Perez"/>
