@@ -1,209 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://kit.fontawesome.com/8f41046c92.js" crossorigin="anonymous"></script>
 
-<head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-  <script src="https://kit.fontawesome.com/8f41046c92.js" crossorigin="anonymous"></script>
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>React App</title>
-  <style>
-    .nav-icon-5 {
-      width: 35px;
-      height: 30px;
-      margin: 10px 10px;
-      position: relative;
-      cursor: pointer;
-      display: inline-block;
-    }
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
 
-    .nav-icon-5 span {
-      background-color: #fff;
-      position: absolute;
-      border-radius: 2px;
-      transition: .3s cubic-bezier(.8, .5, .2, 1.4);
-      width: 100%;
-      height: 4px;
-      transition-duration: 500ms
-    }
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
-    .nav-icon-5 span:nth-child(1) {
-      top: 0px;
-      left: 0px;
-    }
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
 
-    .nav-icon-5 span:nth-child(2) {
-      top: 13px;
-      left: 0px;
-      opacity: 1;
-    }
-
-    .nav-icon-5 span:nth-child(3) {
-      bottom: 0px;
-      left: 0px;
-    }
-
-    .nav-icon-5:not(.open):hover span:nth-child(1) {
-      transform: rotate(-3deg) scaleY(1.1);
-    }
-
-    .nav-icon-5:not(.open):hover span:nth-child(2) {
-      transform: rotate(3deg) scaleY(1.1);
-    }
-
-    .nav-icon-5:not(.open):hover span:nth-child(3) {
-      transform: rotate(-4deg) scaleY(1.1);
-    }
-
-    .nav-icon-5.open span:nth-child(1) {
-      transform: rotate(45deg);
-      top: 13px;
-    }
-
-    .nav-icon-5.open span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .nav-icon-5.open span:nth-child(3) {
-      transform: rotate(-45deg);
-      top: 13px;
-    }
-
-    @media(max-width: 768px) {
-      div#drop {
-        position: relative;
-      }
-
-    }
-    
-    @media(max-width: 768px) {
-      div#drop2 {
-        position: relative;
-      }
-
-    }
-    
-    @media(min-width: 768px) {
-      .burguer {
-        z-index: 3;
-        display: none;
-      }
-    }
-
-  </style>
-</head>
-
-<body class="bg-gradient-to-r from-[#f46b45] to-[#eea849]">
-  <div class="flex flex-col px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8 bg-[#0e0b3066]">
-    <div class="flex flex-row items-center justify-between">
-      <img src="./imgs/LogoCoffe.svg" class="h-[90px] mr-5" alt="" id="imagen">
-      <a href="#"
-        class="text-lg font-semibold tracking-widest text-gray-900 rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Coffe Harvest Help</a>
-
-      <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" id="btn" onclick="my()">
-        <div class="icon nav-icon-5" id="icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </button>
-    </div>
-
-    <nav class="hidden flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row flex"
-      id="nav">
-      <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:bg-[#ffffff42] dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900  hover:bg-[#0000002d]"
-        href="/home">Home</a>
-
-      <div class="relative">
-        <button
-          class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-[#ffffff42] dark-mode:hover:bg-[#0000002d] md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-[#0000002d] focus:bg-[#ffffff91] focus:outline-none focus:shadow-outline justify-start"
-          id="btn2" onclick="myy()">
-          <span class="">Finca</span>
-          <svg fill="currentColor" viewBox="0 0 20 20"
-            class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1 rotate-0" id="iconD">
-            <path fill-rule="evenodd"
-              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-              clip-rule="evenodd"></path>
-          </svg>
-        </button>
-        <div class="hidden absolute w-full lg:mx-[-20px] md:mx-[-52px] mt-2 rounded-md shadow-lg md:w-48" id="drop">
-          <div class="px-2 py-2 bg-[#ffffff42] rounded-md shadow dark-mode:bg-[#ffffff42]">
-            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-[#0000002d]ark-mode:focus:bg-[#ffffff42] dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-[#0000002d] focus:bg-[#0000002d] focus:outline-none focus:shadow-outline"
-              href="/actualizar/finca">Actualizar</a>
-            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-[#0000002d] dark-mode:focus:bg-[#ffffff42] dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-[#0000002d] focus:bg-[#0000002d] focus:outline-none focus:shadow-outline"
-              href="/aniadir/finca">Añadir</a>
-            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-[#0000002d] dark-mode:focus:bg-[#ffffff42] dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-[#0000002d] focus:bg-[#0000002d] focus:outline-none focus:shadow-outline"
-              href="/visualizar/finca">Visualizar</a>
-            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-[#0000002d] dark-mode:focus:bg-[#ffffff42] dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-[#0000002d] focus:bg-[#0000002d] focus:outline-none focus:shadow-outline"
-              href="/seleccionarFinca">Seleccionar</a>
-          </div>
-        </div>
-      </div>
-
-      <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:bg-[#ffffff42] dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900  hover:bg-[#0000002d]"
-        href="/index/lote">Lotes</a>
-
-      <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:bg-[#ffffff42] dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900  hover:bg-[#0000002d]"
-        href="/index/empleado">Empleado</a>
-
-      <div class="relative">
-        <button
-          class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-[#ffffff42] dark-mode:hover:bg-[#0000002d] md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-[#0000002d] focus:bg-[#ffffff42] focus:outline-none focus:shadow-outline justify-start"
-          id="btn3" onclick="myyy()">
-          <span class="">Avtividades</span>
-          <svg fill="currentColor" viewBox="0 0 20 20"
-            class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1 rotate-0" id="iconD2">
-            <path fill-rule="evenodd"
-              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-              clip-rule="evenodd"></path>
-          </svg>
-        </button>
-        <div class="hidden absolute w-full lg:mx-[-20px] md:mx-[-45px] mt-2 rounded-md shadow-lg md:w-48" id="drop2">
-          <div class="py-2 bg-[#ffffff77] rounded-md shadow dark-mode:bg-[#ffffff42]">
-            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-[#0000002d] dark-mode:focus:bg-[#ffffff42] dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-[#0000002d] focus:bg-[#ffffff42] focus:outline-none focus:shadow-outline"
-              href="/actualizar/actividad">Actividad</a>
-            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-[#0000002d] dark-mode:focus:bg-[#ffffff42] dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-[#0000002d] focus:bg-[#ffffff42] focus:outline-none focus:shadow-outline"
-              href="/aniadir/actividad">Registro</a>
-          </div>
-        </div>
-      </div>
-  </div>
-
-
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
-</body>
-<script>
-  let nav = document.getElementById('nav');
-  let icon = document.getElementById('icon');
-  let iconD = document.getElementById('iconD');
-  let iconD2 = document.getElementById('iconD2');
-  let button = document.getElementById('btn');
-  let button2 = document.getElementById('btn2');
-  let button3 = document.getElementById('btn3');
-  let dropdown = document.getElementById('drop');
-  let dropdown2 = document.getElementById('drop2');
-
-
-  button.onclick = function my() {
-    nav.classList.toggle('hidden');
-    icon.classList.toggle('open');
-  }
-
-  button2.onclick = function myy() {
-    dropdown.classList.toggle('hidden');
-    iconD.classList.toggle('rotate-180')
-  }
-
-  button3.onclick = function myyy() {
-    dropdown2.classList.toggle('hidden');
-    iconD2.classList.toggle('rotate-180')
-  }
-</script>
-
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
 </html>
