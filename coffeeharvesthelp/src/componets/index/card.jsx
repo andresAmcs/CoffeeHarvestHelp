@@ -2,6 +2,7 @@ import Button from "../buttons"
 function Cards ({cards}){
     return(
         <>
+        <div className="flex justify-center">
         {cards.map(card => {
             return(
 
@@ -15,6 +16,7 @@ function Cards ({cards}){
             </div>
             )
         })}
+        </div>
         </>
     )
 }
