@@ -6,7 +6,7 @@ export default function NavBar({buttons}) {
     const [navbar, setNavbar] = useState(false);
 
     return (
-        <nav className="w-full bg-white shadow">
+        <nav className="w-full bg-white shadow bg-[#ffffff42]">
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -60,7 +60,7 @@ export default function NavBar({buttons}) {
                         <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">                            
                             {buttons.map(button=>{
                               return(
-                                <li className="text-gray-600 hover:text-blue-600">
+                                <li className="text-gray-900 hover:text-blue-600">
                                   <span>
                                     <i className={`fa-solid fa-${button.icon}`}></i>
                                     <Button name={button.name}/>
