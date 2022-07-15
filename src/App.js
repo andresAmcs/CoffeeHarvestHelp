@@ -10,6 +10,7 @@ import Table from "./componets/index/table"
 import Index from "./componets/visualizar/index"
 import visualizarEmpleado from "./pages/visualizar/visualizarEmpleado"
 import Graphic from "./componets/Grafica"
+import Forms from "./componets/forms/form"
 
 
 function App() {
@@ -48,9 +49,10 @@ function App() {
     <>
     <Navbar buttons={estado}/>
     <Cards cards={list}/>
-    <Table datos={indexActividades}/>
+    {/* <Table datos={indexActividades}/>
     <Index datas={visualizarEmpleado}/>
-    <Graphic/>
+    <Graphic/> */}
+    <Forms />
     </>
   )
 
