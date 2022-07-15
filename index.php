@@ -1,1 +1,1 @@
-<?php require_once ('coffeeharvesthelp\public\index.html') ?>
+<?php require_once ('index.html') ?>
