@@ -1,0 +1,1 @@
+<?php require_once ("CoffeeHarvestHelp/coffeeharvesthelp/public/index.html") ?>
