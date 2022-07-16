@@ -2,7 +2,7 @@ import Button from "./buttons"
 function Cards ({cards}){
     return(
         <>
-        <div className="lg:flex lg:justify-center grid gap-4 grid-cols-2  max-w-[95%] mx-auto">
+        <div className="lg:flex lg:justify-center grid gap-4 sm:grid-cols-2  max-w-[95%] mx-auto">
         {cards.map(card => {
             return(
 

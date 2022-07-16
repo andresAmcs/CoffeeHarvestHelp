@@ -42,8 +42,8 @@ function Formulario({title, action, forLabel, textLabel, icon, tipeInput, idInpu
                                 <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor={forLabel}>
                                     {textLabel}
                                 </label>
-                                    <Input/>
-                                    <Input/>                                    
+                                    
+                                <Input/>                           
                                 <ErrorMessage name="nombre" component={()=>(
                                 <div className="error">{errors.nombre}</div>
                                 )}/>

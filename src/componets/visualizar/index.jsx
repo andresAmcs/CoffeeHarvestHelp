@@ -1,5 +1,6 @@
 import React from "react";
 import Data from "./data";
+import Grafic from "./../Grafica"
 
 function Visualizar({datas}){
 
@@ -20,6 +21,7 @@ function Visualizar({datas}){
                         }
                     </div>
                 </div>
+            <Grafic/>
             </div>
         </div>
     )
