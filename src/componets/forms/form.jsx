@@ -1,66 +1,125 @@
-import React, {useState} from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import Input from "./input"
+import React from 'react';
 
-function Formulario({title, action, forLabel, textLabel, icon, tipeInput, idInput, textPlaceholder, nameButton}){
-    const [formularioEnviado, cambiarFormulario] = useState(false)
-    return(
-        <>        
-        <div className="flex justify-center z-0">
-            <div className="h-[90%] w-[80%] xl:w-[80%] md:w-[90%] sm:w-[90%] 2xl:w-[60%] bg-[#DECBA4] mt-10 mb-10 rounded-2xl">
-                <div className="mt-10 text-xl">
-                    <h2 className="font-medium leading-tight text-4xl mt-0 mb-2 text-stone-900 text-center">{title}</h2>
-                    
-                    <Formik
-                        initialValues={{
-                            nombre:""
-                        }}
-                        validate={(valores)=>{
-                            let errores={
+import { useFormik } from 'formik';
 
-                            }
-                            if(!valores.nombre){
-                                errores.nombre = "usted no es gildardo"
-                            }else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.nombre)){
-                                errores.nombre = "debe ser otra cosa sapo"
-                            }
-                            return errores;
-                        }}
-                        onSubmit={(datos, {resetForm})=>{
-                            resetForm()
-                            console.log(datos)
-                            cambiarFormulario(true)
-                            setTimeout(() => {
-                                cambiarFormulario(false)
-                            }, 3000);
-                        }}
-                    >
-                        {({errors})=>(
+import * as Yup from 'yup';
 
-                        <Form action={action} >                            
-                            <div className="my-5 mx-auto w-4/6">
-                                <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor={forLabel}>
-                                    {textLabel}
-                                </label>
-                                    
-                                <Input/>                           
-                                <ErrorMessage name="nombre" component={()=>(
-                                <div className="error">{errors.nombre}</div>
-                                )}/>
-                            </div>
-                            <button type="submit" className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded flex mx-auto my-5">
-                                {nameButton}
-                            </button>                     
-                            {formularioEnviado && <h3>se ha enviado el formulario</h3>}
-                        </Form>   
 
-                        )}
-                    </Formik>                   
-                </div>
+function Formulario() {
+
+  const formik = useFormik({
+
+    initialValues: {
+        document: '',
+    },
+
+    validationSchema: Yup.object({
+
+        document: Yup.string()
+
+            .min(5,"Debe tener mas de 5 caracteres")
+            .max(15, 'No puede tener mas de 15 Caracteres')
+
+            .required('Debe ingresar un documento'),
+
+        password: Yup.string()
+
+            .required("Debe de ingresar la clave")
+
+    }),
+
+    onSubmit: values => {
+
+      alert(JSON.stringify(values, null, 2));
+
+      console.log("hola")
+
+    },
+
+  });
+
+  return (
+
+    <form onSubmit={formik.handleSubmit}>
+
+        <div className="my-5 mx-auto w-4/6 ">
+            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="document">
+                Documento
+            </label>
+            <div className="flex">
+                <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                    <i className={`fa-solid fa-home`}></i>
+                </span>
+                
+
+                <input
+
+                    id="document"
+
+                    name="document"
+
+                    type="text"
+
+                    onChange={formik.handleChange}
+
+                    onBlur={formik.handleBlur}
+
+                    value={formik.values.document}
+
+                    className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
+
+                />
+
             </div>
+            {formik.touched.document && formik.errors.document ? (
+
+                <div className='text-red-600 text-lg font-bold'>{formik.errors.document}</div>
+
+                ) : null}
         </div>
-        </>
-    )
-}
+
+        <div className="my-5 mx-auto w-4/6 ">
+            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="password">
+                Contraseña
+            </label>
+            <div className="flex">
+                <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                    <i className={`fa-solid fa-key`}></i>
+                </span>
+                
+
+                <input
+
+                    id="password"
+
+                    name="password"
+
+                    type="password"
+
+                    onChange={formik.handleChange}
+
+                    onBlur={formik.handleBlur}
+
+                    value={formik.values.password}
+
+                    className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
+
+                />
+
+            </div>
+            {formik.touched.password && formik.errors.password ? (
+
+                <div className='text-red-600 text-lg font-bold'>{formik.errors.password}</div>
+
+                ) : null}
+        </div>
+
+      <button className='bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 border-b-4 border-amber-800 hover:border-amber-900 rounded flex mx-auto my-5' type="submit">Submit</button>
+
+    </form>
+
+  );
+
+};
 
 export default Formulario

@@ -58,9 +58,9 @@ function App() {
     <Navbar buttons={estado}/>
     {/* <Cards cards={list}/> */}
     {/* <Table datos={page}/> */}
-    <IndexVisualizar datas={page}/>
+    {/* <IndexVisualizar datas={page}/> */}
     {/* <Graphic/> */}
-    {/* <Forms /> */}
+    <Forms />
     {/* <Nosotros/> */}
     {/* <Servicios /> */}
     {/* <Errores/> */}
