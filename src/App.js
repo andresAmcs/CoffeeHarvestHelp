@@ -1,6 +1,5 @@
 import Navbar from "./componets/nav/navbar"
 import prueba from "./pages/prueba"
-import login from "./pages/login"
 import Cards from "./componets/card"
 import indexEmpleados from "./pages/index/indexEmpleados"
 import indexActividades from "./pages/index/indexActividades"
@@ -19,7 +18,20 @@ import Footer from "./componets/footer"
 import Nosotros from "./pages/Nosotros"
 import Servicios from "./pages/Servicios"
 import Errores from "./pages/Error404"
+import Login from "./pages/Login"
 
+import CompraInsumos from "./pages/form/compraInsumos"
+import AplicacionFertilizantes from "./pages/form/aplicacionFertilizantes"
+import CompraHerramientas from "./pages/form/compraHerramientas"
+import Desyerva from "./pages/form/desyerva"
+import Recoleccion from "./pages/form/Recoleccion"
+import Renovacion from "./pages/form/renovacion"
+import Ventas from "./pages/form/ventas"
+
+import SeleccionarActiRegis from "./pages/seleccionarActiRegis"
+import SeleccionarActividad from "./pages/tipoActividad"
+
+import SingIn from "./pages/form/singIn"
 
 function App() {
   var logina = true
@@ -31,7 +43,6 @@ function App() {
   var listNav3 = [{text:"Home", icon:"house"},{text:"Finca", icon:"people-roof"},{text:"Empleados", icon:"people-carry-box"},{text:"Actividades", icon:"address-book"}]
   var listNav4 = [{text:"Home", icon:"house"},{text:"Empleados", icon:"people-carry-box"},{text:"Lote", icon:"kaaba"},{text:"Actividades", icon:"address-book"}]
 
-  
 
   if (logina == true ){    
     estado = prueba
@@ -49,7 +60,7 @@ function App() {
       list = listNav2
     }
   }else{
-    estado = login
+    estado = Login
   }
 
   
@@ -60,7 +71,18 @@ function App() {
     {/* <Table datos={page}/> */}
     {/* <IndexVisualizar datas={page}/> */}
     {/* <Graphic/> */}
-    <Forms />
+    {/* <Forms /> */}
+    {/* <Login/> */}
+    {/* <CompraInsumos/> */}
+    {/* <AplicacionFertilizantes/> */}
+    {/* <CompraHerramientas/> */}
+    {/* <Desyerva/> */}
+    {/* <Recoleccion/> */}
+    {/* <Renovacion/> */}
+    {/* <Ventas/> */}
+    {/* <SeleccionarActiRegis/> */}
+    {/* <SeleccionarActividad/> */}
+    <SingIn/>
     {/* <Nosotros/> */}
     {/* <Servicios /> */}
     {/* <Errores/> */}

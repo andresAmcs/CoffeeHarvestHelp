@@ -7,7 +7,7 @@ import * as Yup from 'yup';
 
 function Formulario() {
 
-  const formik = useFormik({
+const formik = useFormik({
 
     initialValues: {
         document: '',
@@ -121,5 +121,4 @@ function Formulario() {
   );
 
 };
-
 export default Formulario
