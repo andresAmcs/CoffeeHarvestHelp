@@ -8,6 +8,7 @@ function Login(props) {
 
         initialValues: {
             document: '',
+            password: ''
         },
     
         validationSchema: Yup.object({
