@@ -8,7 +8,12 @@ function SingIn(props) {
     const formik = useFormik({
 
         initialValues: {
+            nombre: '',
             document: '',
+            genero: '',
+            correo: '',
+            rol: '',
+            contraseña: '',
         },
     
         validationSchema: Yup.object({

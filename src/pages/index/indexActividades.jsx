@@ -1,5 +1,6 @@
 import React from "react"
 import Table from "../../componets/index/table"
+import Button from "../../componets/buttons"
 
 function IndexActividades(){
     var actividad = {
@@ -12,14 +13,14 @@ function IndexActividades(){
         buttons:[
             {
                 icon:"eye",
-                link:"a"
+                link:"/visualizarActividades"
             },
             {
-                link:"b",
+                link:"/eliminarActividad",
                 icon:"trash"
             },
             {
-                link:"c",
+                link:"/actualizarActividad",
                 icon:"pen"
             }
         ],
@@ -29,7 +30,13 @@ function IndexActividades(){
             "Desyerbar",
         ]
     }
-    return <Table datos={actividad}/>
+    return(
+        <>
+        <Table datos={actividad}/>
+        <Button name="Añadir nueva actividad" link="/seleccionarActividad"/>
+        
+        </>
+    ) 
 }
 
 

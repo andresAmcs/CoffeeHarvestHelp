@@ -8,7 +8,11 @@ function CompraHerramientas(props) {
     const formik = useFormik({
 
         initialValues: {
-            document: '',
+            date: '',
+            cantidad:'',
+            unidad:'',
+            descripcion:'',       
+            valor:'',
         },
     
         validationSchema: Yup.object({

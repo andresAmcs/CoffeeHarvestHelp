@@ -1,7 +1,6 @@
-
-
 import React from "react"
 import Table from "../../componets/index/table"
+import Button from "../../componets/buttons"
 
 function IndexLote(){
     var lote = {
@@ -15,14 +14,14 @@ function IndexLote(){
         buttons:[
             {
                 icon:"eye",
-                link:"#"
+                link:"/visualizarLotes"
             },
             {
-                link:"#",
+                link:"/eliminarLotes",
                 icon:"trash"
             },
             {
-                link:"#",
+                link:"/actualizarLote",
                 icon:"pen"
             }
         ],
@@ -34,7 +33,12 @@ function IndexLote(){
         ]
     }
     
-    return <Table datos={lote}/>
+    return(
+        <>
+        <Table datos={lote}/>
+        <Button name="Añadir nuevo lote" link="/registrarLote"/>        
+        </>
+    ) 
 }
 
 

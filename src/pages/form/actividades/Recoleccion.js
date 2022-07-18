@@ -8,7 +8,13 @@ function Recoleccion(props) {
     const formik = useFormik({
 
         initialValues: {
-            document: '',
+            date: '',
+            lote:'',
+            kilos:'',
+            kilosAproxSeco:'',
+            descripcion:'',
+            numJornales:'',
+            valor:'',
         },
     
         validationSchema: Yup.object({

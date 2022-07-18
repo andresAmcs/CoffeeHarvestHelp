@@ -5,6 +5,8 @@ import Navbar from "./componets/nav/navbar"
 
 import Footer from "./componets/footer"
 
+import Home from "./pages/home"
+
 import Login from "./pages/Login"
 import SingIn from "./pages/form/singIn"
 
@@ -14,6 +16,7 @@ import IndexEmpleados from "./pages/index/indexEmpleados"
 import IndexActividades from "./pages/index/indexActividades"
 import IndexFincas from "./pages/index/indexFinca"
 import IndexLotes from "./pages/index/indexLote"
+import IndexRegistros from "./pages/index/indexRegistros"
 
 import VisualizarEmpleados from "./pages/visualizar/visualizarEmpleado"
 import VisualizarActividades from "./pages/visualizar/visualizarActividades"
@@ -49,16 +52,20 @@ import ActualizarActividad from "./pages/form/actualizar/ActualizarActividad"
 import SeleccionarActiRegis from "./pages/seleccionarActiRegis"
 import SeleccionarActividad from "./pages/tipoActividad"
 
+import Cards from "./componets/card"
+
+// import SingIn2 from "./pages/form/singIn copy"
+
 
 function App() {
   var logina = true
   var estado;
-  var page = VisualizarRegistros;
+  var page = IndexLotes;
   var list ;
-  var listNav1 = [{text:"Home", icon:"house"},{text:"Finca", icon:"people-roof"},{text:"Lote", icon:"kaaba"},{text:"Actividades", icon:"address-book"}]
-  var listNav2 = [{text:"Home", icon:"house"},{text:"Finca", icon:"people-roof"},{text:"Lote", icon:"kaaba"},{text:"Empleados", icon:"people-carry-box"}]
-  var listNav3 = [{text:"Home", icon:"house"},{text:"Finca", icon:"people-roof"},{text:"Empleados", icon:"people-carry-box"},{text:"Actividades", icon:"address-book"}]
-  var listNav4 = [{text:"Home", icon:"house"},{text:"Empleados", icon:"people-carry-box"},{text:"Lote", icon:"kaaba"},{text:"Actividades", icon:"address-book"}]
+  var listNav1 = [{text:"Home", icon:"house", link:"/home"},{text:"Finca", icon:"people-roof", link:"/indexFincas"},{text:"Lote", icon:"kaaba", link:"/indexLotes"},{text:"Actividades", icon:"address-book", link:"/seleccionarActiRegis"}]
+  var listNav2 = [{text:"Home", icon:"house", link:"/home"},{text:"Finca", icon:"people-roof", link:"/indexFincas"},{text:"Lote", icon:"kaaba", link:"/indexLotes"},{text:"Empleados", icon:"people-carry-box", link:"/indexEmpleados"}]
+  var listNav3 = [{text:"Home", icon:"house", link:"/home"},{text:"Finca", icon:"people-roof", link:"/indexFincas"},{text:"Empleados", icon:"people-carry-box", link:"/indexEmpleados"},{text:"Actividades", icon:"address-book", link:"/seleccionarActiRegis"}]
+  var listNav4 = [{text:"Home", icon:"house", link:"/home"},{text:"Empleados", icon:"people-carry-box", link:"/indexEmpleados"},{text:"Lote", icon:"kaaba", link:"/indexLotes"},{text:"Actividades", icon:"address-book", link:"/seleccionarActiRegis"}]
 
 
   if (logina == true ){    
@@ -84,10 +91,11 @@ function App() {
   return (
     <Router>
     <Navbar buttons={estado}/>
+    <Cards cards={list}/>
     <Routes>
       {/* rutas privadadas */}
       <Route
-      path="/indexEmpleado"
+      path="/indexEmpleados"
       element={<Protected isLogin={true}>
         <IndexEmpleados/>
       </Protected>}
@@ -111,6 +119,13 @@ function App() {
       path="/indexLotes"
       element={<Protected isLogin={true}>
         <IndexLotes/>
+      </Protected>}
+      />
+
+      <Route
+      path="/indexRegistros"
+      element={<Protected isLogin={true}>
+        <IndexRegistros/>
       </Protected>}
       />
 
@@ -305,7 +320,18 @@ function App() {
       <Route
       path="/servicios"
       element={<Servicios/>}
-      />      
+      />
+
+      <Route
+      path="/home"
+      element={<Home/>}
+      />
+
+{/* 
+      <Route
+      path="/prueba"
+      element={<SingIn2/>}
+      />       */}
       
     </Routes>
     <Footer/>

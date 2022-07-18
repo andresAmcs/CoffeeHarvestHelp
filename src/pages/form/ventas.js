@@ -8,7 +8,13 @@ function Ventas(props) {
     const formik = useFormik({
 
         initialValues: {
-            document: '',
+            date: '',
+            lote: '',
+            numFactura: '',
+            kilosVendidos: '',
+            valorUnitario: '',
+            sobrePrecio: '',
+            valor: '',
         },
     
         validationSchema: Yup.object({

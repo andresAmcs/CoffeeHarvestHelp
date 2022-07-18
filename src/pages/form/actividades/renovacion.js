@@ -8,7 +8,12 @@ function Renovacion(props) {
     const formik = useFormik({
 
         initialValues: {
-            document: '',
+            date: '',
+            lote:'',
+            descripcion:'',
+            numArboles:'',
+            numJornales:'',
+            valor:'',
         },
     
         validationSchema: Yup.object({

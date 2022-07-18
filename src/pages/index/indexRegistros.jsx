@@ -2,48 +2,46 @@ import React from "react"
 import Table from "../../componets/index/table"
 import Button from "../../componets/buttons"
 
-function IndexFinca(){
-    
-    var Finca = {
+function IndexRegistros(){
+    var Registros = {
     
         head:[
             
             "Nombre",
-            "Tipo Actividad"
+            "Fecha",
+            "Descripcion",
+            "Valor Total"
         ],
         buttons:[
             {
                 icon:"eye",
-                link:"/visualizarFincas"
+                link:"/visualizarRegistros"
             },
             {
-                link:"/eliminarFinca",
+                link:"/eliminarRegistro",
                 icon:"trash"
             },
             {
-                link:"/actualizarFinca",
+                link:"/actualizarRegistro",
                 icon:"pen"
-            },
-            {
-                link:"/seleccionarFinca",
-                icon:"check"
             }
         ],
         body:[
             "123",
             "DEsyerbar Lote 4",
             "Desyerbar",
+            "cualquier cosa",
+            "5000"
         ]
     }
-    
     return(
         <>
-        <Table datos={Finca}/>
-        <Button name="Añadir nueva finca" link="/registrarFinca"/>        
+        <Table datos={Registros}/>
+        <Button name="Añadir nuevo registro" link="/registrarRegistro"/>        
         </>
-        
+
     ) 
 }
 
 
-export default IndexFinca
+export default IndexRegistros

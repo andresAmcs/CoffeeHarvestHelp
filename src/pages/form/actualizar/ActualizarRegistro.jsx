@@ -51,14 +51,13 @@ function ActualizarRegistro() {
 
   return (
 
-    <form onSubmit={formik.handleSubmit}>
-
+    <div className="md:w-[80%] md:m-auto md:my-10 2xl:w-1/2 bg-[#ffffff43] p-6 rounded-lg shadow-xl py-10 mt-10 mx-2 ">
         <Toaster/>
-
+        <div className="w-100% text-center">
+            <h2 className="font-medium leading-tight text-4xl mt-0 mb-2 text-amber-600">Actualizar Registro</h2>
+        </div>
+    <form onSubmit={formik.handleSubmit}>
         <div className="my-5 mx-auto w-4/6 ">
-
-            <h2 className="font-medium leading-tight text-4xl mt-0 mb-2 text-stone-900 text-center">Actualizar Registro</h2>
-
             <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="nombre">
                 Nombre Registro
             </label>
@@ -169,7 +168,7 @@ function ActualizarRegistro() {
       <button className='bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 border-b-4 border-amber-800 hover:border-amber-900 rounded flex mx-auto my-5' type="submit">Submit</button>
 
     </form>
-
+</div>
   );
 
 };

@@ -8,7 +8,11 @@ function AplicacionFertilizantes(props) {
     const formik = useFormik({
 
         initialValues: {
-            document: '',
+            date: '',
+            lote:'',
+            descripcion:'',
+            numJornales:'',
+            valor:'',
         },
     
         validationSchema: Yup.object({

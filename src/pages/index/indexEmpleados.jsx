@@ -1,5 +1,6 @@
 import React from "react"
 import Table from "../../componets/index/table"
+import Button from "../../componets/buttons"
 
 function IndexEmpleado(){
     
@@ -13,14 +14,14 @@ function IndexEmpleado(){
         buttons:[
             {
                 icon:"eye",
-                link:"#"
+                link:"/visualizarEmpleados"
             },
             {
-                link:"#",
+                link:"/eliminarEmpleado",
                 icon:"trash"
             },
             {
-                link:"#",
+                link:"/actualizarEmpleado",
                 icon:"pen"
             }
         ],
@@ -31,7 +32,12 @@ function IndexEmpleado(){
         ]
     }
 
-    return <Table datos={empleado}/>
+    return(
+        <>
+        <Table datos={empleado}/>
+        <Button name="Añadir nuevo empleado" link="/registrarEmpleado"/>
+        </>
+    ) 
 }
 
 
