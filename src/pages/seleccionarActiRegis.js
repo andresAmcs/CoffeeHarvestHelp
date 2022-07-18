@@ -6,7 +6,7 @@ function SeleccionarActiRegis(){
     
     return(
         <>
-        <div className="p-20">
+        <div className="py-20 flex ">
             <Cards cards={listSeleccionarActividad}/>        
         </div>
         </>
