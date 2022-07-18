@@ -1,24 +1,34 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+
 import Navbar from "./componets/nav/navbar"
-import prueba from "./pages/prueba"
+
+import Footer from "./componets/footer"
+
+import Login from "./pages/Login"
+import SingIn from "./pages/form/singIn"
+
 import Cards from "./componets/card"
+
+import prueba from "./pages/prueba"
+import Graphic from "./componets/Grafica"
+import Forms from "./componets/forms/form"
+import Table from "./componets/index/table"
+import IndexVisualizar from "./componets/visualizar/index"
+
 import indexEmpleados from "./pages/index/indexEmpleados"
 import indexActividades from "./pages/index/indexActividades"
 import indexFinca from "./pages/index/indexFinca"
 import indexLote from "./pages/index/indexLote"
-import Table from "./componets/index/table"
-import IndexVisualizar from "./componets/visualizar/index"
+
 import visualizarEmpleado from "./pages/visualizar/visualizarEmpleado"
 import visualizarActividad from "./pages/visualizar/visualizarActividades"
 import visualizarLote from "./pages/visualizar/visualizarLote"
 import visualizarFinca from "./pages/visualizar/visualizarFinca"
 import visualizarRegistro from "./pages/visualizar/visualizarRegistro"
-import Graphic from "./componets/Grafica"
-import Forms from "./componets/forms/form"
-import Footer from "./componets/footer"
+
 import Nosotros from "./pages/Nosotros"
 import Servicios from "./pages/Servicios"
 import Errores from "./pages/Error404"
-import Login from "./pages/Login"
 
 import CompraInsumos from "./pages/form/compraInsumos"
 import AplicacionFertilizantes from "./pages/form/aplicacionFertilizantes"
@@ -28,10 +38,22 @@ import Recoleccion from "./pages/form/Recoleccion"
 import Renovacion from "./pages/form/renovacion"
 import Ventas from "./pages/form/ventas"
 
+import RegistrarActividad from "./pages/form/RegistrarActividad"
+import RegistrarRegistro from "./pages/form/RegistrarRegistro"
+import RegistrarEmpleado from "./pages/form/RegistrarEmpleado"
+import RegistrarFinca from "./pages/form/RegistroFinca"
+import RegistrarLote from "./pages/form/RegistroLote"
+
+import ActualizarEmpleado from "./pages/form/ActulizarEmpleado"
+import ActualizarFinca from "./pages/form/ActualizarFinca"
+import ActualizarLote from "./pages/form/ActualizarLote"
+import ActualizarRegistro from "./pages/form/ActualizarActividad"
+import ActualizarActividad from "./pages/form/ActualizarActividad"
+
+
 import SeleccionarActiRegis from "./pages/seleccionarActiRegis"
 import SeleccionarActividad from "./pages/tipoActividad"
 
-import SingIn from "./pages/form/singIn"
 
 function App() {
   var logina = true
@@ -65,29 +87,17 @@ function App() {
 
   
   return (
-    <>
+    <Router>
     <Navbar buttons={estado}/>
-    {/* <Cards cards={list}/> */}
-    {/* <Table datos={page}/> */}
-    {/* <IndexVisualizar datas={page}/> */}
-    {/* <Graphic/> */}
-    {/* <Forms /> */}
-    {/* <Login/> */}
-    {/* <CompraInsumos/> */}
-    {/* <AplicacionFertilizantes/> */}
-    {/* <CompraHerramientas/> */}
-    {/* <Desyerva/> */}
-    {/* <Recoleccion/> */}
-    {/* <Renovacion/> */}
-    {/* <Ventas/> */}
-    {/* <SeleccionarActiRegis/> */}
-    {/* <SeleccionarActividad/> */}
-    <SingIn/>
-    {/* <Nosotros/> */}
-    {/* <Servicios /> */}
-    {/* <Errores/> */}
+    <Routes>
+      <Route
+      path="/login"
+      element={<Login/>}
+      />
+      
+    </Routes>
     <Footer/>
-    </>
+    </Router>
   )
 
 }

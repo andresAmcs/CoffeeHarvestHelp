@@ -7,7 +7,7 @@ import * as Yup from 'yup';
 import { Toaster, toast } from "react-hot-toast";
 
 
-function ActualizarRegistro() {
+function ActualizarActividad() {
 
   const formik = useFormik({
 
@@ -176,4 +176,4 @@ function ActualizarRegistro() {
 
 
 
-export default ActualizarRegistro
+export default ActualizarActividad

@@ -7,7 +7,7 @@ import * as Yup from 'yup';
 import { Toaster, toast } from "react-hot-toast";
 
 
-function FormularioEmpleado() {
+function RegistrarEmpleado() {
 
   const formik = useFormik({
 
@@ -344,4 +344,4 @@ function FormularioEmpleado() {
 
 
 
-export default FormularioEmpleado
+export default RegistrarEmpleado
