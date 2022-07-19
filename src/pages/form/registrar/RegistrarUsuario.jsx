@@ -2,14 +2,22 @@ import React from 'react';
 
 import { useFormik, yupToFormErrors } from 'formik';
 
+import { useState } from 'react';
+
 import * as Yup from 'yup';
 
 import { Toaster, toast } from "react-hot-toast";
 
 import { useNavigate } from "react-router-dom";
 
+import { createUser } from "../../../helpers/fetch"
+
 
 function RegistrarEmpleado() {
+
+
+    const [users, setUsers] = useState();
+
 
     const navigate=useNavigate()
 
@@ -22,7 +30,7 @@ function RegistrarEmpleado() {
         contrasena2:"",
         correo:"",
         sueldo:"",
-        rol:"",
+        rolId:"",
     },
 
     validationSchema: Yup.object({
@@ -52,16 +60,19 @@ function RegistrarEmpleado() {
 
             .min(0,"Debe ingresar un valor")
         ,
-        rol: Yup.string()
+        rolId: Yup.string()
 
             .required("Debe de seleccionar un valor")
     }),
 
-    onSubmit: values => {
+    onSubmit:values => {
 
       alert(JSON.stringify(values, null, 2));
 
+
         if(values.contrasena==values.contrasena2){
+
+            createUser(values.nombre,values.genero,values.contrasena,values.correo,values.sueldo,values.rolId)
             navigate("/login")
         }else{
             toast("Las contraseñas no coinciden")
@@ -321,7 +332,7 @@ function RegistrarEmpleado() {
         </div>
 
         <div className="my-5 mx-auto w-4/6 ">
-            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="rol">
+            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="rolId">
                 Rol
             </label>
             <div className="flex">
@@ -332,9 +343,9 @@ function RegistrarEmpleado() {
 
                 <select
 
-                    id="rol"
+                    id="rolId"
 
-                    name="rol"
+                    name="rolId"
 
                     type="text"
 
@@ -342,7 +353,7 @@ function RegistrarEmpleado() {
 
                     onBlur={formik.handleBlur}
 
-                    value={formik.values.rol}
+                    value={formik.values.rolId}
 
                     className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
 
@@ -361,9 +372,9 @@ function RegistrarEmpleado() {
                 </select>
 
             </div>
-            {formik.touched.rol && formik.errors.rol ? (
+            {formik.touched.rolId && formik.errors.rolId ? (
 
-                <div className='text-red-600 text-lg font-bold'>{formik.errors.rol}</div>
+                <div className='text-red-600 text-lg font-bold'>{formik.errors.rolId}</div>
 
                 ) : null}
         </div>
