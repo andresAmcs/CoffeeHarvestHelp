@@ -1,6 +1,6 @@
 import React from "react"
 import Table from "../../componets/index/table"
-import Button from "../../componets/buttons"
+import ButtonAgregar from "../../componets/buttonAñadir"
 
 function IndexFinca(){
     
@@ -38,8 +38,7 @@ function IndexFinca(){
     
     return(
         <>
-        <Table datos={Finca}/>
-        <Button name="Añadir nueva finca" link="/registrarFinca"/>        
+        <Table datos={Finca} nombre="Añadir nueva finca" link="/registrarFinca"/>             
         </>
         
     ) 

@@ -1,5 +1,5 @@
 import React from "react"
-import Index from "./../../componets/visualizar/index"
+import Index from "../../componets/visualizar/index"
 
 function VisualizarRegistro(){
     var Registro={

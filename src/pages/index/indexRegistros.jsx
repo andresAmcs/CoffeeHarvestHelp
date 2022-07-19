@@ -1,6 +1,6 @@
 import React from "react"
 import Table from "../../componets/index/table"
-import Button from "../../componets/buttons"
+import ButtonAgregar from "../../componets/buttonAñadir"
 
 function IndexRegistros(){
     var Registros = {
@@ -36,8 +36,7 @@ function IndexRegistros(){
     }
     return(
         <>
-        <Table datos={Registros}/>
-        <Button name="Añadir nuevo registro" link="/registrarRegistro"/>        
+        <Table datos={Registros} nombre="Añadir nuevo registro" link="/registrarRegistro"/>        
         </>
 
     ) 

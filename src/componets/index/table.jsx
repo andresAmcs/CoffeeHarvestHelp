@@ -1,7 +1,8 @@
 import Th from "./th";
 import Button from "./icons";
+import ButtonAgregar from "../buttonAñadir";
 
-function Table({datos}) {
+function Table({datos, link, nombre}) {
     return(
         <>
             <table className="w-[92%] text-sm text-left text-gray-500 dark:text-gray-400 my-10 mx-auto  2xl:table xl:table">
@@ -38,6 +39,7 @@ function Table({datos}) {
                     </tr>
                 </tbody>
             </table>
+            <ButtonAgregar link={link} name={nombre}/>
         </>
     )
 }

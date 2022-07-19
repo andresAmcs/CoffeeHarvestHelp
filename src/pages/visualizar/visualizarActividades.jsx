@@ -1,6 +1,6 @@
 import React from "react"
-import Index from "./../../componets/visualizar/index"
-import Grafica from "./../../componets/Grafica"
+import Index from "../../componets/visualizar/index"
+import Grafica from "../../componets/Grafica"
 
 function VisualizarActividades(){
     var Actividades={

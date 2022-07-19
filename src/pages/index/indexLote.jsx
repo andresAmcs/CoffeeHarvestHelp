@@ -1,6 +1,6 @@
 import React from "react"
 import Table from "../../componets/index/table"
-import Button from "../../componets/buttons"
+import ButtonAgregar from "../../componets/buttonAñadir"
 
 function IndexLote(){
     var lote = {
@@ -35,8 +35,7 @@ function IndexLote(){
     
     return(
         <>
-        <Table datos={lote}/>
-        <Button name="Añadir nuevo lote" link="/registrarLote"/>        
+        <Table datos={lote} nombre="Añadir nuevo lote" link="/registrarLote"/>              
         </>
     ) 
 }

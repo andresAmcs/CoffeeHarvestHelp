@@ -1,4 +1,4 @@
-import Grafica from "./../componets/Grafica"
+import Grafica from "../componets/Grafica"
 
 function Home(){
     return(

@@ -1,29 +1,40 @@
-import React from "react"
-import Index from "./../../componets/visualizar/index"
+import Index from "../../componets/visualizar/index"
+import React, { useEffect, useState } from "react";
+import { getDataFinca } from "../../helpers/fetch"
+import { useParams } from 'react-router-dom';
 
-function VisualizarFinca(){
+function VisualizarFinca(){    
+    const [dataFinca, setData] = useState({
+        id:'',
+        nombre: '',
+        tipoFinca: '',
+        ubicacion: ''        
+      });
+
+    console.log( getDataFinca(1))
     var Finca={
         title:"Finca",
         values:[
             {
                 keys:"Id",
-                value:"17542"
+                value:dataFinca.id
             },
             {
                 keys:"Nombre",
-                value:"Pancho"
+                value:dataFinca.nombre
             },
             {
                 keys:"Tipo Finca",
-                value:"Cafetera"
+                value:dataFinca.tipoFinca
             },
             {
                 keys:"Ubicacion",
-                value:"Palestina"
+                value:dataFinca.ubicacion
             }
         ]
     
     }
+    
     
     return <Index datas={Finca}/>
 

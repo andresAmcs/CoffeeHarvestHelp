@@ -181,11 +181,7 @@ function AplicacionFertilizantes(props) {
             </div>            
             <input type="submit" value="Añadir ACtividad" className="bg-amber-600 hover:bg-amber-800 transition-colors cursos-pointer uppercase font-bold w-full p-3 text-white rounded-lg" />    
         </form>                                        
-                </div>
-            
-        
-
-        
+                </div>        
     
       );
 }

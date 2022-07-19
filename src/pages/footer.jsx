@@ -1,5 +1,5 @@
 import React from "react";
-import ItemsContainer from "./../componets/footer/ItemsContainer";
+import ItemsContainer from "../componets/footer/ItemsContainer";
 
 const Footer = () => {
   return (

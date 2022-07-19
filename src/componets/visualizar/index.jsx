@@ -1,6 +1,6 @@
 import React from "react";
 import Data from "./data";
-import Grafic from "./../Grafica"
+import Grafic from "../Grafica"
 
 function Visualizar({datas}){
 

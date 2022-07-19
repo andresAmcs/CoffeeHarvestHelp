@@ -1,6 +1,6 @@
 import React from "react"
 import Table from "../../componets/index/table"
-import Button from "../../componets/buttons"
+import ButtonAgregar from "../../componets/buttonAñadir"
 
 function IndexEmpleado(){
     
@@ -34,8 +34,7 @@ function IndexEmpleado(){
 
     return(
         <>
-        <Table datos={empleado}/>
-        <Button name="Añadir nuevo empleado" link="/registrarEmpleado"/>
+        <Table datos={empleado} nombre="Añadir nuevo empleado" link="/registrarEmpleado"/>        
         </>
     ) 
 }

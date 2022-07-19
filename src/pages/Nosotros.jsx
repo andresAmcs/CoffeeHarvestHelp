@@ -1,8 +1,8 @@
 import React from "react";
-import imgAndres from "./../assets/imgs/Andres.jpg"
-import imgDaniel from "./../assets/imgs/Daniel.jpg"
-import imgSimon from "./../assets/imgs/Simon.jpeg"
-import Card from "./../componets/nosotros/Card";
+import imgAndres from "../assets/imgs/Andres.jpg"
+import imgDaniel from "../assets/imgs/Daniel.jpg"
+import imgSimon from "../assets/imgs/Simon.jpeg"
+import Card from "../componets/nosotros/Card";
 
 function Nosotros() {
     

@@ -1,6 +1,6 @@
 import React from "react"
 import Table from "../../componets/index/table"
-import Button from "../../componets/buttons"
+import ButtonAgregar from "../../componets/buttonAñadir"
 
 function IndexActividades(){
     var actividad = {
@@ -32,8 +32,7 @@ function IndexActividades(){
     }
     return(
         <>
-        <Table datos={actividad}/>
-        <Button name="Añadir nueva actividad" link="/seleccionarActividad"/>
+        <Table datos={actividad} nombre="Añadir nueva actividad" link="/seleccionarActividad"/>        
         
         </>
     ) 
