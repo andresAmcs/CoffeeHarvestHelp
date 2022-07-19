@@ -7,7 +7,7 @@ import Footer from "./footer"
 
 import Home from "./../pages/home"
 
-import Login from "./../pages/Login"
+import Login from "./../pages/login"
 import SingIn from "./../pages/form/singIn"
 
 import NavBar from "./../pages/navBar"
@@ -51,6 +51,8 @@ import ActualizarActividad from "./../pages/form/actualizar/ActualizarActividad"
 
 import SeleccionarActiRegis from "./../pages/seleccionarActiRegis"
 import SeleccionarActividad from "./../pages/tipoActividad"
+
+import RegistrarUsuario from "../pages/form/registrar/RegistrarUsuario"
 
 
 function Rutas(){
@@ -292,6 +294,11 @@ function Rutas(){
         <Route
         path="/home"
         element={<Home/>}
+        />
+
+        <Route
+        path="/registrarUsuario"
+        element={<RegistrarUsuario/>}
         />
 
     {/* 

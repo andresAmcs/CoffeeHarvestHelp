@@ -7,7 +7,7 @@ import Footer from "./componets/footer"
 
 import Home from "./pages/home"
 
-import Login from "./pages/Login"
+import Login from "./pages/login"
 import SingIn from "./pages/form/singIn"
 
 import NavBar from "./pages/navBar"

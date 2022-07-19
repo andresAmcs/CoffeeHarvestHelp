@@ -1,1 +1,1 @@
-export const ApiCoffee = "https://coffeharvesthelp-api.herokuapp.com/api/v1/"
+export const ApiCoffee = "https://coffeharvesthelp-api.herokuapp.com/api/v1/users"

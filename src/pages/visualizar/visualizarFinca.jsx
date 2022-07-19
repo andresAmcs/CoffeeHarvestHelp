@@ -1,6 +1,6 @@
 import Index from "../../componets/visualizar/index"
 import React, { useEffect, useState } from "react";
-import { getDataFinca } from "../../helpers/fetch"
+
 import { useParams } from 'react-router-dom';
 
 function VisualizarFinca(){    
@@ -11,7 +11,7 @@ function VisualizarFinca(){
         ubicacion: ''        
       });
 
-    console.log( getDataFinca(1))
+
     var Finca={
         title:"Finca",
         values:[
