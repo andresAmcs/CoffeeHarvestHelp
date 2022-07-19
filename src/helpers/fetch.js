@@ -10,7 +10,7 @@ export const getUsers = async () => {
 }
 
 export const createUser = async (data) => {
-  const resp = await fetch(ApiCoffee, {
+  const resp = await fetch(ApiCoffee+"/users", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
@@ -20,3 +20,4 @@ export const createUser = async (data) => {
   const json = await resp.json();
   return json;
 }
+

@@ -18,7 +18,6 @@ function RegistrarEmpleado() {
 
     const [users, setUsers] = useState();
 
-
     const navigate=useNavigate()
 
   const formik = useFormik({
@@ -69,10 +68,17 @@ function RegistrarEmpleado() {
 
       alert(JSON.stringify(values, null, 2));
 
+        let nombre=values.nombre
+        let genero=values.genero
+        let contrasena=values.contrasena
+        let correo=values.correo
+        let sueldo=values.sueldo
+        let rolId=values.rolId
 
         if(values.contrasena==values.contrasena2){
 
-            createUser(values.nombre,values.genero,values.contrasena,values.correo,values.sueldo,values.rolId)
+
+            createUser({nombre,genero,contrasena,correo,sueldo,rolId})
             navigate("/login")
         }else{
             toast("Las contraseñas no coinciden")
@@ -160,10 +166,10 @@ function RegistrarEmpleado() {
                     <option value="">
                         Seleccione
                     </option>
-                    <option value="M">
+                    <option value="masculino">
                         Masculino
                     </option>
-                    <option value="F">
+                    <option value="femenino">
                         Femenino
                     </option>
                     <option value="O">
@@ -347,7 +353,7 @@ function RegistrarEmpleado() {
 
                     name="rolId"
 
-                    type="text"
+                    type="number"
 
                     onChange={formik.handleChange}
 
