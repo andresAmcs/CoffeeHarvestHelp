@@ -12,16 +12,18 @@ import SingIn from "./../pages/form/singIn"
 
 import NavBar from "./../pages/navBar"
 
-import IndexEmpleados from "./../pages/index/indexEmpleados"
-import IndexActividades from "./../pages/index/indexActividades"
-import IndexFincas from "./../pages/index/indexFinca"
+import IndexEmpleados from "../pages/index2/indexEmpleados2"
+import IndexFincas from "../pages/index2/finca/indexFinca2"
 import IndexLotes from "./../pages/index/indexLote"
+
+import IndexActividades from "./../pages/index/indexActividades"
 import IndexRegistros from "./../pages/index/indexRegistros"
 
-import VisualizarEmpleados from "./../pages/visualizar/visualizarEmpleado"
-import VisualizarActividades from "./../pages/visualizar/visualizarActividades"
+import VisualizarEmpleados from "../pages/form/visualizar2/visualizarEmpleado"
 import VisualizarLotes from "./../pages/visualizar/visualizarLote"
-import VisualizarFincas from "./../pages/visualizar/visualizarFinca"
+import VisualizarFincas from "../pages/form/visualizar2/visualizarFinca"
+
+import VisualizarActividades from "./../pages/visualizar/visualizarActividades"
 import VisualizarRegistros from "./../pages/visualizar/visualizarRegistro"
 
 import Nosotros from "./../pages/Nosotros"
@@ -42,9 +44,10 @@ import RegistrarEmpleado from "./../pages/form/registrar/RegistrarEmpleado"
 import RegistrarFinca from "./../pages/form/registrar/RegistroFinca"
 import RegistrarLote from "./../pages/form/registrar/RegistroLote"
 
-import ActualizarEmpleado from "./../pages/form/actualizar/ActulizarEmpleado"
-import ActualizarFinca from "./../pages/form/actualizar/ActualizarFinca"
+import ActualizarEmpleado from "./../pages/form/editar/editarEmpleado"
+import ActualizarFinca from "../pages/form/editar/editarFinca"
 import ActualizarLote from "./../pages/form/actualizar/ActualizarLote"
+
 import ActualizarRegistro from "./../pages/form/actualizar/ActualizarActividad"
 import ActualizarActividad from "./../pages/form/actualizar/ActualizarActividad"
 
@@ -106,14 +109,14 @@ function Rutas(){
         />
         
         <Route
-        path="/visualizarEmpleados"
+        path="/empleado/:id"
         element={<Protected isLogin={ingresado}>
             <VisualizarEmpleados/>
         </Protected>}
         />
 
         <Route
-        path="/visualizarFincas"
+        path="/fincas/:id"
         element={<Protected isLogin={ingresado}>
             <VisualizarFincas/>
         </Protected>}
@@ -218,14 +221,14 @@ function Rutas(){
         />
 
         <Route
-        path="/actualizarEmpleado"
+        path="/empleado/editar/:id"
         element={<Protected isLogin={ingresado}>
             <ActualizarEmpleado/>
         </Protected>}
         />
 
         <Route
-        path="/actualizarFinca"
+        path="/fincas/editar/:id"
         element={<Protected isLogin={ingresado}>
             <ActualizarFinca/>
         </Protected>}
@@ -266,9 +269,13 @@ function Rutas(){
         </Protected>}
         />
 
+
+
+
+
         {/* rutas publicas */}
         <Route
-        path="/login"
+        path="/"
         element={<Login/>}
         />
         <Route

@@ -66,8 +66,6 @@ function RegistrarEmpleado() {
 
     onSubmit:values => {
 
-      alert(JSON.stringify(values, null, 2));
-
         let nombre=values.nombre
         let genero=values.genero
         let contrasena=values.contrasena

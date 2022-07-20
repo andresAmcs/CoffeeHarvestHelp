@@ -2,18 +2,41 @@ import React from 'react';
 
 import { useFormik, yupToFormErrors } from 'formik';
 
+import { useState , useEffect} from 'react';
+
 import * as Yup from 'yup';
 
-import { useNavigate } from 'react-router-dom';
 
-import { createFinca } from "../../../helpers/fetch"
+import { editarFinca } from "../../../helpers/fetch"
+
+import { useNavigate,useParams } from "react-router-dom";
 
 import { Toaster, toast } from "react-hot-toast";
 
 
-function RegistrarFinca() {
+function EditarFinca() {
 
     const navigate=useNavigate()
+
+    const params = useParams()
+
+    const loadTask = async (id) => {
+        const res = await fetch("https://coffeharvesthelp-api.herokuapp.com/api/v1/fincas/" + id);
+        const data = await res.json();
+        console.log(data)
+    };
+
+    useEffect(() => {
+        (async () => {
+          await loadTask(params.id)
+        })();
+         
+        console.log('editar user id '+params.id)
+        if (params.id) {
+            loadTask(params.id);
+        }
+      }, [params.id]);
+
 
   const formik = useFormik({
 
@@ -23,7 +46,6 @@ function RegistrarFinca() {
         ubicacionFinca: '',
         colindantes: '',
         totalHectareas: '',
-        userId:"",
     },
 
     validationSchema: Yup.object({
@@ -52,25 +74,30 @@ function RegistrarFinca() {
             .positive("Debe ser un valor positivo")
             .required("Debe ingresar un valor numerico"),
         
-        userId: Yup.number()
-
-            .required("Debe de ingresar un valor")
     }),
 
     onSubmit: values => {
+
+        const id=params.id
 
         let tipoFinca = values.tipoFinca
         let nombreFinca = values.nombreFinca
         let ubicacionFinca = values.ubicacionFinca
         let colindantes = values.colindantes
         let totalHectareas = values.totalHectareas
-        let userId = values.userId
         
-        createFinca({tipoFinca,nombreFinca,ubicacionFinca,colindantes,totalHectareas,userId})
 
-        navigate("/indexFincas")
 
-        toast("Finca Registrada")
+
+
+        editarFinca({tipoFinca,nombreFinca,ubicacionFinca,colindantes,totalHectareas},id);
+
+        toast("Finca Actualizado")
+
+        setTimeout(() => {
+            navigate("/indexFincas")
+        }, 1000);
+
 
     },
 
@@ -279,45 +306,8 @@ function RegistrarFinca() {
                 ) : null}
         </div>
 
-
-        <div className="my-5 mx-auto w-4/6 ">
-            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="userId">
-                Id de Usuario
-            </label>
-            <div className="flex">
-                <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-key`}></i>
-                </span>
-                
-
-                <input
-
-                    id="userId"
-
-                    name="userId"
-
-                    type="number"
-
-                    onChange={formik.handleChange}
-
-                    onBlur={formik.handleBlur}
-
-                    value={formik.values.userId}
-
-                    className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
-
-                />
-
-            </div>
-            {formik.touched.userId && formik.errors.userId ? (
-
-                <div className='text-red-600 text-lg font-bold'>{formik.errors.userId}</div>
-
-                ) : null}
-        </div>
-
       <button className='bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 border-b-4 border-amber-800 hover:border-amber-900 rounded flex mx-auto my-5' type="submit">Submit</button>
-
+      <button onClick={()=>(navigate("/indexFincas"))} className='bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 border-b-4 border-amber-800 hover:border-amber-900 rounded flex mx-auto my-5'>Volver</button>
     </form>
 </div>
   );
@@ -326,4 +316,4 @@ function RegistrarFinca() {
 
 
 
-export default RegistrarFinca
+export default EditarFinca  

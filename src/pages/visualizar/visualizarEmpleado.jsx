@@ -2,6 +2,10 @@ import React from "react"
 import Index from "../../componets/visualizar/index"
 
 function VisualizarEmpleado(){
+
+    
+
+
     var empleado={
         title:"Empleado",
         values:[

@@ -23,7 +23,9 @@ ChartJS.register(
   Filler
 );
 
-const scores = [6, 5, 5, 5, 3, 4, 6, 4, 5, 6, 4, 5];
+const datos= [1,2,3,4,5,6,7,8,9,10,11,12]
+
+const scores = [...datos];
 const labels = ["Jan", "Feb", "March", "April", "May", "June", "July", "Agost", "Sep" , "Oct","Nov","Dec"];
 
 const options = {
@@ -50,8 +52,10 @@ export default function BarChart(props) {
           label: "Meses",
           tension: 0.3,
           data: scores,
-          borderColor: "rgb(75, 192, 192)",
-          backgroundColor: "rgba(75, 192, 192, 0.3)",
+          borderColor: "#0a3ac1",
+          backgroundColor: "#37c0f0",
+          borderWidth:5,
+          borderRadius:20
         },
       ],
       labels,
@@ -63,7 +67,7 @@ export default function BarChart(props) {
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{props.titulo}</div>                                    
       </div>
-      <div className="App">
+      <div className="App w-[95%] mx-auto  bg-[#f69775]">
         <Bar data={data} options={options} />
       </div>
     </div>

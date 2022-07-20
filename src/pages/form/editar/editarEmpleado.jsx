@@ -1,40 +1,73 @@
 import React from 'react';
 
+import { useState , useEffect} from 'react';
+
 import { useFormik, yupToFormErrors } from 'formik';
 
 import * as Yup from 'yup';
 
 import { Toaster, toast } from "react-hot-toast";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 
-import { createEmpleado } from "../../../helpers/fetch"
+import { editarEmpleado } from "../../../helpers/fetch"
+
 
 
 function RegistrarEmpleado() {
 
+    
+    const [user, setEmpleados] = useState({
+        id: "",
+        nombre:"",
+        genero:"",
+        correo:"",
+        pago:"",
+        tipoContrato:"",    
+        fincaId:"",
+    });
+
     const navigate=useNavigate()
+
+
+    const params = useParams()
+
+    const loadTask = async (id) => {
+        const res = await fetch("https://coffeharvesthelp-api.herokuapp.com/api/v1/empleados/" + id);
+        const data = await res.json();
+        console.log(data)
+        setEmpleados({ id: data.data.id, nombre: data.data.nombre, genero: data.data.genero, correo: data.data.correo, pago: data.data.pago, tipoContrato: data.tipoContrato, fincaId: data.fincaId });
+    };
+
+    useEffect(() => {
+        (async () => {
+          await loadTask(params.id)
+        })();
+         
+        console.log('editar user id '+params.id)
+        if (params.id) {
+            loadTask(params.id);
+            console.log(user)
+
+        }
+      }, [params.id]);
+
+    
+
 
   const formik = useFormik({
 
     initialValues: {
-        documento: '',
-        nombre:"",
-        tipoPago:"",    
-        pago:"",
-        correo:"",
-        genero:"",
-        finca:"",
+        id: user.id,
+        nombre:user.nombre,
+        genero:user.genero,
+        correo:user.correo,
+        pago:user.pago,
+        tipoContrato:user.tipoContrato,    
+        fincaId:user.fincaId,
     },
 
     validationSchema: Yup.object({
-
-        documento: Yup.string()
-
-            .min(5,"Debe tener mas de 5 caracteres")
-            .max(15, 'No puede tener mas de 15 Caracteres')
-
-            .required('Debe ingresar un documento'),
 
         nombre: Yup.string()
 
@@ -61,7 +94,7 @@ function RegistrarEmpleado() {
 
             .required("Debe de seleccionar un valor"),
 
-        finca: Yup.number()
+        fincaId: Yup.number()
 
             .min(1,"Debe ingresar un valor positivo")
             .required("Debe de ingresar un valor")
@@ -69,25 +102,23 @@ function RegistrarEmpleado() {
 
     onSubmit: values => {
 
-      
-        let nombre=values.nombre
-        let genero=values.genero
-        let correo=values.correo
+        const id=params.id
+        const nombre=values.nombre;
+        const tipoPago=values.tipoPago;
+        const pago=values.pago;
+        const correo=values.correo;
+        const genero=values.genero;
+        const fincaId=values.fincaId;
 
-        let pago=values.pago
-        let tipoContrato=values.tipoPago
+        console.log(values)
 
-        let fincaId=values.finca
+        editarEmpleado({nombre, tipoPago,pago,correo,genero,fincaId},id);
 
+        toast("Empleado Actualizado")
 
-        createEmpleado({nombre,genero,correo,pago,tipoContrato,fincaId})
-
-        
         setTimeout(() => {
             navigate("/indexEmpleados")
         }, 1000);
-
-        toast("Empleado Registrado")
 
 
     },
@@ -101,45 +132,10 @@ function RegistrarEmpleado() {
     <div className="md:w-[80%] md:m-auto md:my-10 2xl:w-1/2 bg-[#ffffff43] p-6 rounded-lg shadow-xl py-10 mt-10 mx-2 ">
         <Toaster/>
         <div className="w-100% text-center">
-            <h2 className="font-medium leading-tight text-4xl mt-0 mb-2 text-amber-600">Añadir Empleado</h2>
+            <h2 className="font-medium leading-tight text-4xl mt-0 mb-2 text-amber-600">Editar Empleado</h2>
         </div>
     <form onSubmit={formik.handleSubmit}>
-        <div className="my-5 mx-auto w-4/6 ">
-            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="documento">
-                Documento
-            </label>
-            <div className="flex">
-                <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-home`}></i>
-                </span>
-                
-
-                <input
-
-                    id="documento"
-
-                    name="documento"
-
-                    type="number"
-
-                    onChange={formik.handleChange}
-
-                    onBlur={formik.handleBlur}
-
-                    value={formik.values.document}
-
-                    className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
-
-                />
-
-            </div>
-            {formik.touched.documento && formik.errors.documento ? (
-
-                <div className='text-red-600 text-lg font-bold'>{formik.errors.documento}</div>
-
-                ) : null}
-        </div>
-
+        
         <div className="my-5 mx-auto w-4/6 ">
             <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="nombre">
                 Nombre
@@ -361,7 +357,7 @@ function RegistrarEmpleado() {
         </div>
 
         <div className="my-5 mx-auto w-4/6 ">
-            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="finca">
+            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="fincaId">
                 Finca Id
             </label>
             <div className="flex">
@@ -372,9 +368,9 @@ function RegistrarEmpleado() {
 
                 <input
 
-                    id="finca"
+                    id="fincaId"
 
-                    name="finca"
+                    name="fincaId"
 
                     type="number"
 
@@ -382,22 +378,23 @@ function RegistrarEmpleado() {
 
                     onBlur={formik.handleBlur}
 
-                    value={formik.values.finca}
+                    value={formik.values.fincaId}
 
                     className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
 
                 />
 
             </div>
-            {formik.touched.finca && formik.errors.finca ? (
+            {formik.touched.fincaId && formik.errors.fincaId ? (
 
-                <div className='text-red-600 text-lg font-bold'>{formik.errors.finca}</div>
+                <div className='text-red-600 text-lg font-bold'>{formik.errors.fincaId}</div>
 
                 ) : null}
         </div>
 
-        <button className='bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 border-b-4 border-amber-800 hover:border-amber-900 rounded flex mx-auto my-5' type="submit">Submit</button>
-        <button onClick={()=>(navigate("/indexEmpleados"))} className='bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 border-b-4 border-amber-800 hover:border-amber-900 rounded flex mx-auto my-5'>Volver</button>
+      <button className='bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 border-b-4 border-amber-800 hover:border-amber-900 rounded flex mx-auto my-5' type="submit">Submit</button>
+      <button onClick={()=>(navigate("/indexEmpleados"))} className='bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 border-b-4 border-amber-800 hover:border-amber-900 rounded flex mx-auto my-5' >Vovler</button>
+        
     </form>
 </div>
   );

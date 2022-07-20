@@ -20,6 +20,7 @@ function Login(props) {
         (async () => {
            loadUsers()
            var users = await getUsers();
+           console.log(users)
         })();
      }, []);
 

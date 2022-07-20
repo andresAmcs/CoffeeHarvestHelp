@@ -37,13 +37,13 @@ function RegistrarActividad() {
 
     onSubmit: (values,{resetForm}) => {
 
-      alert(JSON.stringify(values, null, 2));
+        alert(JSON.stringify(values, null, 2));
 
-      console.log("hola")
+        console.log("hola")
 
-      toast("Finca Registrada")
+        toast("Finca Registrada")
 
-      resetForm()
+        resetForm()
 
     },
 
