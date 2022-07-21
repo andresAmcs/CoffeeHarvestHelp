@@ -1,6 +1,5 @@
 import {useNavigate} from 'react-router-dom'
 import { deleteEmpleado } from '../../helpers/fetch';
-import { getEmpleado } from "../../helpers/fetch"
 
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';

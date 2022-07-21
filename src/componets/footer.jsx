@@ -1,3 +1,6 @@
+import React from "react"
+
+
 function Footer (){
     return(
         <footer className="p-4 bg-white sm:p-6 dark:bg-gray-900">
@@ -13,13 +16,13 @@ function Footer (){
                 <h2 className="my-5 text-sm font-semibold uppercase text-[#f46b19]">Nosotros</h2>
                 <ul className="text-gray-600 dark:text-gray-400">
                     <li className="mb-4">
-                        <a href="https://github.com/themesberg/flowbite" className="hover:underline ">Andres Mauricio Cifuentes Silva</a>
+                        <a href="/nosotros" className="hover:underline ">Andres Mauricio Cifuentes Silva</a>
                     </li>
                     <li className="mb-4">
-                        <a href="https://discord.gg/4eeurUVvTy" className="hover:underline">Daniel Gonzalez Ceballos</a>
+                        <a href="/nosotros" className="hover:underline">Daniel Gonzalez Ceballos</a>
                     </li>
                     <li>
-                        <a href="https://discord.gg/4eeurUVvTy" className="hover:underline">Simon Toro Cuervo</a>
+                        <a href="/nosotros" className="hover:underline">Simon Toro Cuervo</a>
                     </li>
                 </ul>
             </div>   
@@ -38,7 +41,7 @@ function Footer (){
                 </ul>
             </div>         
         </div>                    
-                                
+
     </div>
     <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
     <div className="sm:flex sm:items-center sm:justify-between">

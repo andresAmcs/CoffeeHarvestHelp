@@ -152,3 +152,59 @@ export const editarFinca = async (data,id) => {
   const json = await resp.json();
   return json;
 }
+
+//Lote
+
+export const getLotes = async () =>{
+  const resp = await fetch(ApiCoffee+"/lotes", {
+    method: "GET"
+ })
+ const json = await resp.json()
+ return json;
+}
+
+export const getLote = async (id) => {
+  const uri = `https://coffeharvesthelp-api.herokuapp.com/api/v1/lotes/${id}`
+
+  const resp = await fetch(uri, {
+    method: "GET",
+  });
+  const json = await resp.json();
+  return json;
+}
+
+export const deleteLote = async (id) => {
+  const uri = `https://coffeharvesthelp-api.herokuapp.com/api/v1/fincas/${id}`
+  
+  const resp = await fetch(uri, {
+    method: "DELETE",
+    headers: {
+      'Content-Type': "application/json"
+    }
+  })
+  const json = await resp.json();
+  return json;
+}
+
+export const createLote = async (data) =>{
+
+  const resp = await fetch(ApiCoffee+"/lotes",{
+    method:"POST",
+    body:JSON.stringify(data),
+    headers:{
+      "Content-Type":"application/json"
+    }
+  })
+  const json = await resp.json();
+  return json;
+}
+
+export const dataToListLote = (json) =>{
+  const data =json.data.map(item=>({
+    
+    id:item.id,
+    cantArboles:item.cantArboles,
+    tipoCafe:item.tipoCafe,
+  }))
+  return data
+}

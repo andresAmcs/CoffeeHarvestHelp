@@ -14,13 +14,13 @@ import NavBar from "./../pages/navBar"
 
 import IndexEmpleados from "../pages/index2/indexEmpleados2"
 import IndexFincas from "../pages/index2/finca/indexFinca2"
-import IndexLotes from "./../pages/index/indexLote"
+import IndexLotes from "../pages/index2/lote/indexLote2"
 
 import IndexActividades from "./../pages/index/indexActividades"
 import IndexRegistros from "./../pages/index/indexRegistros"
 
 import VisualizarEmpleados from "../pages/form/visualizar2/visualizarEmpleado"
-import VisualizarLotes from "./../pages/visualizar/visualizarLote"
+import VisualizarLotes from "../pages/form/visualizar2/visualizarLote"
 import VisualizarFincas from "../pages/form/visualizar2/visualizarFinca"
 
 import VisualizarActividades from "./../pages/visualizar/visualizarActividades"
@@ -123,7 +123,7 @@ function Rutas(){
         />
 
         <Route
-        path="/visualizarLotes"
+        path="/lotes/:id"
         element={<Protected isLogin={ingresado}>
             <VisualizarLotes/>
         </Protected>}

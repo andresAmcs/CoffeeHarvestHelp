@@ -77,7 +77,7 @@ function RegistrarEmpleado() {
 
 
             createUser({nombre,genero,contrasena,correo,sueldo,rolId})
-            navigate("/login")
+            navigate("/")
         }else{
             toast("Las contraseñas no coinciden")
         }

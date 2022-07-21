@@ -12,17 +12,27 @@ import { editarFinca } from "../../../helpers/fetch"
 import { useNavigate,useParams } from "react-router-dom";
 
 import { Toaster, toast } from "react-hot-toast";
+import userEvent from '@testing-library/user-event';
 
 
 function EditarFinca() {
 
     const navigate=useNavigate()
 
+    const [user, setFinca] = useState({
+        tipoFinca: '',
+        nombreFinca: '',
+        ubicacionFinca: '',
+        colindantes: '',
+        totalHectareas: '',
+    });
+
     const params = useParams()
 
     const loadTask = async (id) => {
         const res = await fetch("https://coffeharvesthelp-api.herokuapp.com/api/v1/fincas/" + id);
         const data = await res.json();
+        setFinca({tipoFinca: data.data.tipoFinca, nombreFinca: data.data.nombreFinca, ubicacionFinca: data.data.ubicacionFinca, colindantes: data.data.colindantes, totalHectareas: data.data.totalHectareas});
         console.log(data)
     };
 
@@ -135,6 +145,8 @@ function EditarFinca() {
 
                     value={formik.values.nombreFinca}
 
+                    placeholder={user.nombreFinca}
+
                     className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
 
                 />
@@ -170,6 +182,8 @@ function EditarFinca() {
                     onBlur={formik.handleBlur}
 
                     value={formik.values.tipoFinca}
+
+                    placeholder={user.tipoFinca}
 
                     className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
 
@@ -224,6 +238,8 @@ function EditarFinca() {
 
                     className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
 
+                    placeholder={user.ubicacionFinca}
+
                 />
 
             </div>
@@ -260,6 +276,8 @@ function EditarFinca() {
 
                     className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
 
+                    placeholder={user.colindantes}
+
                 />
 
             </div>
@@ -293,6 +311,8 @@ function EditarFinca() {
                     onBlur={formik.handleBlur}
 
                     value={formik.values.totalHectareas}
+
+                    placeholder={user.totalHectareas}
 
                     className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
 

@@ -66,11 +66,15 @@ function RegistrarFinca() {
         let totalHectareas = values.totalHectareas
         let userId = values.userId
         
+        
         createFinca({tipoFinca,nombreFinca,ubicacionFinca,colindantes,totalHectareas,userId})
-
-        navigate("/indexFincas")
-
+        
         toast("Finca Registrada")
+        setTimeout(() => {
+
+            navigate("/indexFincas")
+
+        }, 1200);
 
     },
 

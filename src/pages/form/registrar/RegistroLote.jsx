@@ -4,37 +4,43 @@ import { useFormik, yupToFormErrors } from 'formik';
 
 import * as Yup from 'yup';
 
+import { createLote } from "../../../helpers/fetch"
+
+import { useNavigate } from 'react-router-dom';
+
 import { Toaster, toast } from "react-hot-toast";
 
 
 function RegistrarLote() {
 
+    const navigate=useNavigate()
   const formik = useFormik({
 
     initialValues: {
-        nombre:"",
-        canArboles:"",
-        tiCafe:"",
-        em2:"",
+        nombreLote:"",
+        cantArboles:"",
+        tipoCafe:"",
+        extensionM2:"",
         fechaSiembra:"",
-        distanSurcos:"",
-        distanSiembra:"",
+        distanciaSiembraSurcos:"",
+        distanciaSiembraPlantas:"",
         tipoPorte:"",
         tipoSiembra:"",
         abonado:"", 
-        plagas:"" 
+        plagas:"",
+        fincaId:"" 
     },
 
     validationSchema: Yup.object({
 
-        nombre: Yup.string()
+        nombreLote: Yup.string()
 
             .min(2,"Debe tener 2 o mas caracteres")
             .max(50, 'No puede tener mas de 50 Caracteres')
 
             .required('Debe ingresar un documento')
             ,
-        canArboles: Yup.number()
+        cantArboles: Yup.number()
 
             .min(0,"No puede ser un valor negativo")
             .required("Debe de ingresar un valor numerico")
@@ -44,7 +50,7 @@ function RegistrarLote() {
             .required("Debe de seleccionar un valor")
         ,
         
-        em2: Yup.number()
+        extensionM2: Yup.number()
 
             .positive("Debe ingresar un valor positivo")
             .required("Debe ingresar un valor numerico"),
@@ -54,13 +60,13 @@ function RegistrarLote() {
             .required("Debe ingresar una fecha")
             ,
         
-        distanSurcos: Yup.number()
+        distanciaSiembraSurcos: Yup.number()
 
             .positive("Debe de ingresar un valor positivo")
             .required("Debe de ingresar un valor")
             ,
         
-        distanSiembra: Yup.number()
+        distanciaSiembraPlantas: Yup.number()
 
             .positive("Debe de ingresar un valor positivo")
             .required("Debe de ingresar un valor numerico"),
@@ -87,9 +93,30 @@ function RegistrarLote() {
 
     onSubmit: values => {
 
-      alert(JSON.stringify(values, null, 2));
 
-      toast("Lote Registrado")
+    toast("Lote Registrado")
+
+        const nombreLote=values.nombreLote
+        const cantArboles=values.cantArboles
+        const tipoCafe=values.tipoCafe
+        const extensionM2=values.extensionM2
+        const fechaSiembra=values.fechaSiembra
+        const distanciaSiembraSurcos=values.distanciaSiembraSurcos
+        const distanciaSiembraPlantas=values.distanciaSiembraPlantas
+        const tipoPorte=values.tipoPorte
+        const tipoSiembra=values.tipoSiembra
+        const abonado=values.abonado
+        const plagas=values.plagas
+        const fincaId=values.fincaId
+
+        createLote({nombreLote,cantArboles,tipoCafe,extensionM2,fechaSiembra,distanciaSiembraPlantas,distanciaSiembraSurcos,tipoPorte,tipoSiembra,abonado,plagas,fincaId})
+
+        setTimeout(() => {
+            navigate("/indexLotes")
+        }, 1200);
+
+
+
 
     },
 
@@ -104,7 +131,7 @@ function RegistrarLote() {
         </div>
     <form onSubmit={formik.handleSubmit}>
         <div className="my-5 mx-auto w-4/6 ">
-            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="nombre">
+            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="nombreLote">
                 Nombre Lote
             </label>
             <div className="flex">
@@ -115,9 +142,9 @@ function RegistrarLote() {
 
                 <input
 
-                    id="nombre"
+                    id="nombreLote"
 
-                    name="nombre"
+                    name="nombreLote"
 
                     type="text"
 
@@ -125,16 +152,16 @@ function RegistrarLote() {
 
                     onBlur={formik.handleBlur}
 
-                    value={formik.values.nombre}
+                    value={formik.values.nombreLote}
 
                     className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
 
                 />
 
             </div>
-            {formik.touched.nombre && formik.errors.nombre ? (
+            {formik.touched.nombreLote && formik.errors.nombreLote ? (
 
-                <div className='text-red-600 text-lg font-bold'>{formik.errors.nombre}</div>
+                <div className='text-red-600 text-lg font-bold'>{formik.errors.nombreLote}</div>
 
                 ) : null}
         </div>
@@ -143,7 +170,7 @@ function RegistrarLote() {
 
 
         <div className="my-5 mx-auto w-4/6 ">
-            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="canArboles">
+            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="cantArboles">
                 Cantidad de Arboles
             </label>
             <div className="flex">
@@ -154,9 +181,9 @@ function RegistrarLote() {
 
                 <input
 
-                    id="canArboles"
+                    id="cantArboles"
 
-                    name="canArboles"
+                    name="cantArboles"
 
                     type="number"
 
@@ -164,16 +191,16 @@ function RegistrarLote() {
 
                     onBlur={formik.handleBlur}
 
-                    value={formik.values.canArboles}
+                    value={formik.values.cantArboles}
 
                     className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
 
                 />
 
             </div>
-            {formik.touched.canArboles && formik.errors.canArboles ? (
+            {formik.touched.cantArboles && formik.errors.cantArboles ? (
 
-                <div className='text-red-600 text-lg font-bold'>{formik.errors.canArboles}</div>
+                <div className='text-red-600 text-lg font-bold'>{formik.errors.cantArboles}</div>
 
                 ) : null}
         </div>
@@ -247,7 +274,7 @@ function RegistrarLote() {
         
 
         <div className="my-5 mx-auto w-4/6 ">
-            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="em2">
+            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="extensionM2">
                 Extencion M2
             </label>
             <div className="flex">
@@ -258,9 +285,9 @@ function RegistrarLote() {
 
                 <input
 
-                    id="em2"
+                    id="extensionM2"
 
-                    name="em2"
+                    name="extensionM2"
 
                     type="number"
 
@@ -275,9 +302,9 @@ function RegistrarLote() {
                 />
 
             </div>
-            {formik.touched.em2 && formik.errors.em2 ? (
+            {formik.touched.extensionM2 && formik.errors.extensionM2 ? (
 
-                <div className='text-red-600 text-lg font-bold'>{formik.errors.em2}</div>
+                <div className='text-red-600 text-lg font-bold'>{formik.errors.extensionM2}</div>
 
                 ) : null}
         </div>
@@ -324,8 +351,8 @@ function RegistrarLote() {
 
         
         <div className="my-5 mx-auto w-4/6 ">
-            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="distanSurcos">
-                Distancia de surcos (Metros)
+            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="distanciaSiembraSurcos">
+                Distancia de Siembra Surcos (Metros)
             </label>
             <div className="flex">
                 <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
@@ -335,9 +362,9 @@ function RegistrarLote() {
 
                 <input
 
-                    id="distanSurcos"
+                    id="distanciaSiembraSurcos"
 
-                    name="distanSurcos"
+                    name="distanciaSiembraSurcos"
 
                     type="number"
 
@@ -345,16 +372,16 @@ function RegistrarLote() {
 
                     onBlur={formik.handleBlur}
 
-                    value={formik.values.distanSurcos}
+                    value={formik.values.distanciaSiembraSurcos}
 
                     className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
 
                 />
 
             </div>
-            {formik.touched.distanSurcos && formik.errors.distanSurcos ? (
+            {formik.touched.distanciaSiembraSurcos && formik.errors.distanciaSiembraSurcos ? (
 
-                <div className='text-red-600 text-lg font-bold'>{formik.errors.distanSurcos}</div>
+                <div className='text-red-600 text-lg font-bold'>{formik.errors.distanciaSiembraSurcos}</div>
 
                 ) : null}
         </div>
@@ -362,7 +389,7 @@ function RegistrarLote() {
         
 
         <div className="my-5 mx-auto w-4/6 ">
-            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="distanSiembra">
+            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="distanciaSiembraPlantas">
                 Distancia de siembra (Metros)
             </label>
             <div className="flex">
@@ -373,9 +400,9 @@ function RegistrarLote() {
 
                 <input
 
-                    id="distanSiembra"
+                    id="distanciaSiembraPlantas"
 
-                    name="distanSiembra"
+                    name="distanciaSiembraPlantas"
 
                     type="number"
 
@@ -383,16 +410,16 @@ function RegistrarLote() {
 
                     onBlur={formik.handleBlur}
 
-                    value={formik.values.distanSiembra}
+                    value={formik.values.distanciaSiembraPlantas}
 
                     className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
 
                 />
 
             </div>
-            {formik.touched.distanSiembra && formik.errors.distanSiembra ? (
+            {formik.touched.distanciaSiembraPlantas && formik.errors.distanciaSiembraPlantas ? (
 
-                <div className='text-red-600 text-lg font-bold'>{formik.errors.distanSiembra}</div>
+                <div className='text-red-600 text-lg font-bold'>{formik.errors.distanciaSiembraPlantas}</div>
 
                 ) : null}
         </div>
@@ -580,6 +607,42 @@ function RegistrarLote() {
             {formik.touched.plagas && formik.errors.plagas ? (
 
                 <div className='text-red-600 text-lg font-bold'>{formik.errors.plagas}</div>
+
+                ) : null}
+        </div>
+
+        <div className="my-5 mx-auto w-4/6 ">
+            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="fincaId">
+                ID DE LA FINCA
+            </label>
+            <div className="flex">
+                <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                    <i className={`fa-solid fa-key`}></i>
+                </span>
+                
+
+                <input
+
+                    id="fincaId"
+
+                    name="fincaId"
+
+                    type="text"
+
+                    onChange={formik.handleChange}
+
+                    onBlur={formik.handleBlur}
+
+                    value={formik.values.fincaId}
+
+                    className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
+
+                />
+
+            </div>
+            {formik.touched.fincaId && formik.errors.fincaId ? (
+
+                <div className='text-red-600 text-lg font-bold'>{formik.errors.fincaId}</div>
 
                 ) : null}
         </div>

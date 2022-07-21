@@ -36,7 +36,7 @@ function RegistrarEmpleado() {
         const res = await fetch("https://coffeharvesthelp-api.herokuapp.com/api/v1/empleados/" + id);
         const data = await res.json();
         console.log(data)
-        setEmpleados({ id: data.data.id, nombre: data.data.nombre, genero: data.data.genero, correo: data.data.correo, pago: data.data.pago, tipoContrato: data.tipoContrato, fincaId: data.fincaId });
+        setEmpleados({ id: data.data.id, nombre: data.data.nombre, genero: data.data.genero, correo: data.data.correo, pago: data.data.pago, tipoContrato: data.data.tipoContrato, fincaId: data.data.fincaId });
     };
 
     useEffect(() => {
@@ -160,6 +160,8 @@ function RegistrarEmpleado() {
 
                     value={formik.values.nombre}
 
+                    placeholder={user.nombre}
+
                     className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
 
                 />
@@ -197,8 +199,10 @@ function RegistrarEmpleado() {
 
                     value={formik.values.tipoPago}
 
-                    className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
+                    placeholder={user.tipoPago}
 
+                    className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
+                
                 >
 
                     <option value="">
@@ -250,6 +254,8 @@ function RegistrarEmpleado() {
 
                     value={formik.values.pago}
 
+                    placeholder={user.pago}
+
                     className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
 
                 />
@@ -290,6 +296,8 @@ function RegistrarEmpleado() {
 
                     className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
 
+                    placeholder={user.correo}
+
                 />
 
             </div>
@@ -329,6 +337,7 @@ function RegistrarEmpleado() {
 
                     className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
 
+                    
                 >
 
                     <option value="">
@@ -380,8 +389,10 @@ function RegistrarEmpleado() {
 
                     value={formik.values.fincaId}
 
-                    className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
+                    placeholder={user.fincaId}
 
+                    className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
+                    
                 />
 
             </div>
