@@ -17,7 +17,7 @@ import IndexFincas from "../pages/index2/finca/indexFinca2"
 import IndexLotes from "../pages/index2/lote/indexLote2"
 
 import IndexActividades from "./../pages/index/indexActividades"
-import IndexRegistros from "./../pages/index/indexRegistros"
+import IndexRegistros from "../pages/index2/registro/indexRegistro2"
 
 import VisualizarEmpleados from "../pages/form/visualizar2/visualizarEmpleado"
 import VisualizarLotes from "../pages/form/visualizar2/visualizarLote"
@@ -39,14 +39,14 @@ import Renovacion from "./../pages/form/actividades/renovacion"
 import Ventas from "./../pages/form/ventas"
 
 import RegistrarActividad from "./../pages/form/registrar/RegistrarActividad"
-import RegistrarRegistro from "./../pages/form/registrar/RegistrarRegistro"
+import RegistrarRegistro from "../pages/form/registrar/RegistrarRegistro"
 import RegistrarEmpleado from "./../pages/form/registrar/RegistrarEmpleado"
 import RegistrarFinca from "./../pages/form/registrar/RegistroFinca"
 import RegistrarLote from "./../pages/form/registrar/RegistroLote"
 
 import ActualizarEmpleado from "./../pages/form/editar/editarEmpleado"
 import ActualizarFinca from "../pages/form/editar/editarFinca"
-import ActualizarLote from "./../pages/form/actualizar/ActualizarLote"
+import ActualizarLote from "./../pages/form/editar/editarLote"//-----------------------------------------
 
 import ActualizarRegistro from "./../pages/form/actualizar/ActualizarActividad"
 import ActualizarActividad from "./../pages/form/actualizar/ActualizarActividad"
@@ -130,7 +130,7 @@ function Rutas(){
         />
 
         <Route
-        path="/visualizarRegistros"
+        path="/registro/:id"
         element={<Protected isLogin={ingresado}>
             <VisualizarRegistros/>
         </Protected>}
@@ -154,6 +154,13 @@ function Rutas(){
         path="/compraHerramientas"
         element={<Protected isLogin={ingresado}>
             <CompraHerramientas/>
+        </Protected>}
+        />
+
+        <Route
+        path="/registrarRegistro"
+        element={<Protected isLogin={ingresado}>
+            <RegistrarRegistro/>
         </Protected>}
         />
 
@@ -193,9 +200,9 @@ function Rutas(){
         />
 
         <Route
-        path="/registrarRegistro"
+        path="/registro/editar/:id"
         element={<Protected isLogin={ingresado}>
-            <RegistrarRegistro/>
+            <ActualizarRegistro/>
         </Protected>}
         />
 
@@ -235,7 +242,7 @@ function Rutas(){
         />
 
         <Route
-        path="/actualizarLote"
+        path="/lotes/editar/:id"
         element={<Protected isLogin={ingresado}>
             <ActualizarLote/>
         </Protected>}

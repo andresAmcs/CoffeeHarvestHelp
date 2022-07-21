@@ -1,6 +1,8 @@
 import React,{ useState,useEffect } from "react";
 import { useParams,useNavigate } from "react-router-dom";
 
+import Navbar from "../../../componets/nav/navbar"
+import estado from "../../../pages/navBar"
 
 function VisualizarEmpleado() {
     
@@ -38,7 +40,8 @@ function VisualizarEmpleado() {
     }, [params.id]);
 
     return(
-
+        <>
+        <Navbar buttons={estado}/>
         <div className="flex justify-center z-0">
             <div className="h-[90%] w-[95%] sm:w-[95%] bg-[#DECBA4] my-10 rounded-2xl">
                 <div className="mt-10 text-xl">                
@@ -83,6 +86,7 @@ function VisualizarEmpleado() {
                 </div>
             </div>
         </div>
+        </>
     )
 }
     

@@ -1,12 +1,14 @@
 import React from "react";
 import Data from "./data";
 import Grafic from "../Grafica"
-
+import Navbar from "../nav/navbar";
+import estado from "../../pages/navBar"
 function Visualizar({datas}){
 
     return(
-
-        <div className="flex justify-center z-0">
+        <>
+        <Navbar buttons={estado}/>
+        <div className="flex justify-center z-0 mt-10">
             <div className="h-[90%] w-[95%] sm:w-[95%] bg-[#DECBA4] my-10 rounded-2xl">
                 <div className="mt-10 text-xl">                
                     <h2 className="font-medium leading-tight text-4xl mt-0 mb-2 text-stone-900 text-center">Visualizar {datas.title}</h2>                                                        
@@ -21,9 +23,9 @@ function Visualizar({datas}){
                         }
                     </div>
                 </div>
-            <Grafic/>
             </div>
         </div>
+        </>
     )
 }
 

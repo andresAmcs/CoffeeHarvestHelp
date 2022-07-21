@@ -7,7 +7,7 @@ function SeleccionarActiRegis(){
     
     return(
         <>
-        <h2 className="font-medium leading-tight text-5xl my-10  text-center">Seleccione una opción</h2>            
+        <h2 className="font-medium leading-tight text-5xl my-20  text-center">Seleccione una opción</h2>            
         <div className="pb-20 flex ">
             <Cards cards={listSeleccionarActividad}/>        
         </div>

@@ -208,3 +208,57 @@ export const dataToListLote = (json) =>{
   }))
   return data
 }
+
+export const editarLote = async (data,id) => {
+  const uri = `https://coffeharvesthelp-api.herokuapp.com/api/v1/lotes/${id}`
+  
+  const resp = await fetch(uri, {
+    method: "PUT",
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': "application/json"
+    }
+  })
+  const json = await resp.json();
+  return json;
+}
+
+//Registros
+
+export const getRegistros = async () =>{
+  const resp = await fetch(ApiCoffee+"/registroActividades", {
+    method: "GET"
+ })
+ const json = await resp.json()
+ return json;
+}
+
+export const dataToListActividad = (json) =>{
+  const data =json.data.map(item=>({
+    
+    id:item.id,
+    descripcion:item.descripcion
+  }))
+  return data
+}
+
+export const moneyToListActividad = (json) =>{
+  const data =json.data.map(item=>({
+    tipoLaborId:item.tipoLaborId,
+    valorTotal:item.valorTotal
+  }))
+  return data
+}
+
+export const deleteRegistro = async (id) => {
+  const uri = `https://coffeharvesthelp-api.herokuapp.com/api/v1/registroActividades/${id}`
+  
+  const resp = await fetch(uri, {
+    method: "DELETE",
+    headers: {
+      'Content-Type': "application/json"
+    }
+  })
+  const json = await resp.json();
+  return json;
+}

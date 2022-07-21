@@ -1,4 +1,5 @@
-import React, { useMemo } from "react";
+import React, { useMemo,useEffect,useState } from "react";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,7 +11,9 @@ import {
   Legend,
   Filler,
 } from "chart.js";
+
 import { Bar } from "react-chartjs-2";
+import { getRegistros,moneyToListActividad } from "../helpers/fetch"
 
 ChartJS.register(
   CategoryScale,
@@ -23,10 +26,11 @@ ChartJS.register(
   Filler
 );
 
-const datos= [1,2,3,4,5,6,7,8,9,10,11,12]
 
-const scores = [...datos];
-const labels = ["Jan", "Feb", "March", "April", "May", "June", "July", "Agost", "Sep" , "Oct","Nov","Dec"];
+export default function BarChart(props) {
+
+const scores = props.datos;
+const labels = ["Aplicacion Fertilizante", "Desyerva", "Recoleccion", "Renovacion"];
 
 const options = {
   fill: true,
@@ -44,17 +48,17 @@ const options = {
   },
 };
 
-export default function BarChart(props) {
+
   const data = useMemo(function () {
     return {
       datasets: [
         {
-          label: "Meses",
+          label: "Tipos de Labores",
           tension: 0.3,
           data: scores,
           borderColor: "#0a3ac1",
-          backgroundColor: "#37c0f0",
-          borderWidth:5,
+          backgroundColor: ["#001141","#002841","#00413E","#00411A"],
+          borderWidth:0,
           borderRadius:20
         },
       ],

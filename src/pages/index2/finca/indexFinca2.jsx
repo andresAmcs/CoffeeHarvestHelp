@@ -4,6 +4,9 @@ import { dataToListFinca, getFincas } from "../../../helpers/fetch";
 import { useNavigate } from "react-router-dom";
 import Card from "../../../componets/card";
 
+import Navbar from "../../../componets/nav/navbar"
+import estado from "../../../pages/navBar"
+
 const CatList = () => {
 
   var listNav4 = [{text:"Home", icon:"house", link:"/home"},{text:"Empleados", icon:"people-carry-box", link:"/indexEmpleados"},{text:"Lote", icon:"kaaba", link:"/indexLotes"},{text:"Actividades", icon:"address-book", link:"/seleccionarActiRegis"}]
@@ -29,6 +32,7 @@ const CatList = () => {
   
   return (
     <>
+     <Navbar buttons={estado}/>
       <Card cards={listNav4}/>
       <div>
         <Table data={cats} />

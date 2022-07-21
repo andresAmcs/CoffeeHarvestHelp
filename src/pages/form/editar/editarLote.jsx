@@ -1,20 +1,49 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 import { useFormik, yupToFormErrors } from 'formik';
 
 import * as Yup from 'yup';
 
-import { createLote } from "../../../helpers/fetch"
+import { editarLote } from '../../../helpers/fetch';
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from "react-router-dom";
+
+import { createLote } from "../../../helpers/fetch"
 
 import { Toaster, toast } from "react-hot-toast";
 
+import Navbar from "../../../componets/nav/navbar"
+import estado from "../../../pages/navBar"
 
-function RegistrarLote() {
+
+function EditarLote() {
+
+
+    const [user, setFinca] = useState({
+        nombreLote:"",
+        cantArboles:"",
+        tipoCafe:"",
+        extensionM2:"",
+        fechaSiembra:"",
+        distanciaSiembraSurcos:"",
+        distanciaSiembraPlantas:"",
+        tipoPorte:"",
+        tipoSiembra:"",
+        abonado:"", 
+        plagas:"",
+    });
+
+    const params = useParams()
+
+    const loadTask = async (id) => {
+        const res = await fetch("https://coffeharvesthelp-api.herokuapp.com/api/v1/fincas/" + id);
+        const data = await res.json();
+        setFinca({tipoFinca: data.data.tipoFinca, nombreFinca: data.data.nombreFinca, ubicacionFinca: data.data.ubicacionFinca, colindantes: data.data.colindantes, totalHectareas: data.data.totalHectareas});
+        console.log(data)
+    };
 
     const navigate=useNavigate()
-  const formik = useFormik({
+    const formik = useFormik({
 
     initialValues: {
         nombreLote:"",
@@ -28,7 +57,6 @@ function RegistrarLote() {
         tipoSiembra:"",
         abonado:"", 
         plagas:"",
-        fincaId:"" 
     },
 
     validationSchema: Yup.object({
@@ -90,9 +118,6 @@ function RegistrarLote() {
 
             .required("Debe de seleccionar un valor valido"),
 
-        fincaId: Yup.number()
-
-            .required("Debe de ingresar un valor")
     }),
 
     onSubmit: values => {
@@ -111,9 +136,9 @@ function RegistrarLote() {
         const tipoSiembra=values.tipoSiembra
         const abonado=values.abonado
         const plagas=values.plagas
-        const fincaId=values.fincaId
+        const fincaId=params.id
 
-        createLote({nombreLote,cantArboles,tipoCafe,extensionM2,fechaSiembra,distanciaSiembraPlantas,distanciaSiembraSurcos,tipoPorte,tipoSiembra,abonado,plagas,fincaId})
+        editarLote({nombreLote,cantArboles,tipoCafe,extensionM2,fechaSiembra,distanciaSiembraPlantas,distanciaSiembraSurcos,tipoPorte,tipoSiembra,abonado,plagas},fincaId)
 
         setTimeout(() => {
             navigate("/indexLotes")
@@ -127,11 +152,12 @@ function RegistrarLote() {
   });
 
   return (
-
+    <>
+    <Navbar buttons={estado}/>
     <div className="md:w-[80%] md:m-auto md:my-10 2xl:w-1/2 bg-[#ffffff43] p-6 rounded-lg shadow-xl py-10 mt-10 mx-2 ">
         <Toaster/>
         <div className="w-100% text-center">
-            <h2 className="font-medium leading-tight text-4xl mt-0 mb-2 text-amber-600">Añadir Lote</h2>
+            <h2 className="font-medium leading-tight text-4xl mt-0 mb-2 text-amber-600">Editar Lote</h2>
         </div>
     <form onSubmit={formik.handleSubmit}>
         <div className="my-5 mx-auto w-4/6 ">
@@ -615,50 +641,15 @@ function RegistrarLote() {
                 ) : null}
         </div>
 
-        <div className="my-5 mx-auto w-4/6 ">
-            <label className="w-[60%] block uppercase text-gray-800 font-bold" htmlFor="fincaId">
-                ID DE LA FINCA
-            </label>
-            <div className="flex">
-                <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-key`}></i>
-                </span>
-                
-
-                <input
-
-                    id="fincaId"
-
-                    name="fincaId"
-
-                    type="number"
-
-                    onChange={formik.handleChange}
-
-                    onBlur={formik.handleBlur}
-
-                    value={formik.values.fincaId}
-
-                    className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
-
-                />
-
-            </div>
-            {formik.touched.fincaId && formik.errors.fincaId ? (
-
-                <div className='text-red-600 text-lg font-bold'>{formik.errors.fincaId}</div>
-
-                ) : null}
-        </div>
-
       <button className='bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 border-b-4 border-amber-800 hover:border-amber-900 rounded flex mx-auto my-5' type="submit">Submit</button>
-
+      <button onClick={()=>(navigate("/indexLotes"))} className='bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 border-b-4 border-amber-800 hover:border-amber-900 rounded flex mx-auto my-5'>Volver</button>
     </form>
 </div>
+</>
   );
 
 };
 
 
 
-export default RegistrarLote
+export default EditarLote

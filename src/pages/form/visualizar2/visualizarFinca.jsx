@@ -1,5 +1,7 @@
 import React,{ useState,useEffect } from "react";
 import { useParams,useNavigate } from "react-router-dom";
+import Navbar from "../../../componets/nav/navbar"
+import estado from "../../../pages/navBar"
 
 
 function VisualizarFinca() {
@@ -38,41 +40,42 @@ function VisualizarFinca() {
     }, [params.id]);
 
     return(
-
+        <>
+        <Navbar buttons={estado}/>
         <div className="flex justify-center z-0">
             <div className="h-[90%] w-[95%] sm:w-[95%] bg-[#DECBA4] my-10 rounded-2xl">
                 <div className="mt-10 text-xl">                
-                    <h2 className="font-medium leading-tight text-4xl mt-0 mb-2 text-stone-900 text-center">Visualizar Empleado</h2>                                                        
+                    <h2 className="font-medium leading-tight text-4xl mt-0 mb-2 text-stone-900 text-center">Visualizar Finca</h2>                                                        
                     <div className="grid xl:grid-cols-2 sm:grid-cols-1 gap-4 p-5 w-[90%] mx-auto"> 
 
 
                         <div className="mb-6 w-[100%] sm:w-[95%] mx-auto">
-                            <label htmlFor="large-input" className="block mb-2 text-sm font-medium text-black">Nombre</label>
+                            <label htmlFor="large-input" className="block mb-2 text-sm font-medium text-black">Nombre Finca</label>
                             <input type="text" id="large-input" className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={user.nombreFinca} disabled/>
                         </div>
 
                         <div className="mb-6 w-[100%] sm:w-[95%] mx-auto">
-                            <label htmlFor="large-input" className="block mb-2 text-sm font-medium text-black">Genero</label>
+                            <label htmlFor="large-input" className="block mb-2 text-sm font-medium text-black">Tipo Finca</label>
                             <input type="text" id="large-input" className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={user.tipoFinca} disabled/>
                         </div>
 
                         <div className="mb-6 w-[100%] sm:w-[95%] mx-auto">
-                            <label htmlFor="large-input" className="block mb-2 text-sm font-medium text-black">Correo</label>
+                            <label htmlFor="large-input" className="block mb-2 text-sm font-medium text-black">Ubicacion</label>
                             <input type="text" id="large-input" className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={user.ubicacionFinca} disabled/>
                         </div>
 
                         <div className="mb-6 w-[100%] sm:w-[95%] mx-auto">
-                            <label htmlFor="large-input" className="block mb-2 text-sm font-medium text-black">Tico Contrato</label>
+                            <label htmlFor="large-input" className="block mb-2 text-sm font-medium text-black">Colindantes</label>
                             <input type="text" id="large-input" className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={user.colindantes} disabled/>
                         </div>
 
                         <div className="mb-6 w-[100%] sm:w-[95%] mx-auto">
-                            <label htmlFor="large-input" className="block mb-2 text-sm font-medium text-black">Pago</label>
+                            <label htmlFor="large-input" className="block mb-2 text-sm font-medium text-black">Total Hectareas</label>
                             <input type="text" id="large-input" className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={user.totalHectareas} disabled/>
                         </div>
 
                         <div className="mb-6 w-[100%] sm:w-[95%] mx-auto">
-                            <label htmlFor="large-input" className="block mb-2 text-sm font-medium text-black">Codigo Finca</label>
+                            <label htmlFor="large-input" className="block mb-2 text-sm font-medium text-black">ID Dueño</label>
                             <input type="text" id="large-input" className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={user.userId} disabled/>
                         </div>
 
@@ -83,6 +86,7 @@ function VisualizarFinca() {
                 </div>
             </div>
         </div>
+        </>
     )
 }
     

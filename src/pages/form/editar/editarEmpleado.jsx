@@ -12,6 +12,8 @@ import { useNavigate,useParams } from "react-router-dom";
 
 import { editarEmpleado } from "../../../helpers/fetch"
 
+import Navbar from "../../../componets/nav/navbar"
+import estado from "../../../pages/navBar"
 
 
 function RegistrarEmpleado() {
@@ -103,6 +105,7 @@ function RegistrarEmpleado() {
     onSubmit: values => {
 
         const id=params.id
+
         const nombre=values.nombre;
         const tipoPago=values.tipoPago;
         const pago=values.pago;
@@ -128,7 +131,8 @@ function RegistrarEmpleado() {
   return (
 
     
-
+    <>
+    <Navbar buttons={estado}/>
     <div className="md:w-[80%] md:m-auto md:my-10 2xl:w-1/2 bg-[#ffffff43] p-6 rounded-lg shadow-xl py-10 mt-10 mx-2 ">
         <Toaster/>
         <div className="w-100% text-center">
@@ -404,10 +408,11 @@ function RegistrarEmpleado() {
         </div>
 
       <button className='bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 border-b-4 border-amber-800 hover:border-amber-900 rounded flex mx-auto my-5' type="submit">Submit</button>
-      <button onClick={()=>(navigate("/indexEmpleados"))} className='bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 border-b-4 border-amber-800 hover:border-amber-900 rounded flex mx-auto my-5' >Vovler</button>
+      <button onClick={()=>(navigate("/indexEmpleados"))} className='bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 border-b-4 border-amber-800 hover:border-amber-900 rounded flex mx-auto my-5' >Volver</button>
         
     </form>
 </div>
+</>
   );
 
 };

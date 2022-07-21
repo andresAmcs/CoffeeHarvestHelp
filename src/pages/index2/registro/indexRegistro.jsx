@@ -1,6 +1,5 @@
-import { useNavigate } from 'react-router-dom'
-import { getLote } from "../../../helpers/fetch"
-import { deleteLote } from "../../../helpers/fetch"
+import {useNavigate} from 'react-router-dom'
+import { deleteRegistro } from '../../../helpers/fetch';
 
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -9,7 +8,7 @@ export const Table = ({data = []}) => {
   const navigate = useNavigate()
 
   const loadTask = async (id) => {
-    const res = await fetch("https://coffeharvesthelp-api.herokuapp.com/api/v1/lotes/" + id)
+    const res = await fetch("https://coffeharvesthelp-api.herokuapp.com/api/v1/registroActividades/" + id)
     const data = await res.json();
     
     console.log(data)
@@ -39,13 +38,10 @@ export const Table = ({data = []}) => {
               ID
           </th>
           <th scope="col" className="px-6 py-3">
-              CANTIDAD ARBOLES
+              DESCRIPCION
           </th>
           <th scope="col" className="px-6 py-3">
-              TIPO CAFE
-          </th>
-          <th scope="col" className="px-6 py-3">
-              
+              Opciones
           </th>
         </tr>
       </thead>
@@ -58,14 +54,12 @@ export const Table = ({data = []}) => {
                   {data.id}
                 </td>
                 <td scope="col" className="px-6 py-3">
-                  {data.cantArboles}
-                </td>
-                <td scope="col" className="px-6 py-3">
-                  {data.tipoCafe}
+                  {data.descripcion}
                 </td>
                 <td scope="col" className=" ">
-                  <button onClick={() => navigate(`/lotes/${data.id}`)}><i className="mt-2 mx-5 fa-solid fa-eye text-green-500"></i></button>
-                  <button onClick={() => navigate(`/lotes/editar/${data.id}`)}><i className="my-5 mx-5 fa-solid fa-pen text-yellow-500"></i></button>
+                  <button onClick={() => navigate(`/registro/${data.id}`)}><i className="mt-2 mx-5 fa-solid fa-eye text-green-500"></i></button>
+                  <button onClick={() => navigate(`/registro/editar/${data.id}`)}><i className="my-5 mx-5 fa-solid fa-pen text-yellow-500"></i></button>
+                  <button ><i className="mb-2 mx-5 fa-solid fa-trash text-red-500"></i></button>
                 </td>
 
             </tr>
@@ -73,7 +67,6 @@ export const Table = ({data = []}) => {
         
       </tbody>
     </table>
-    
     
   );
 };

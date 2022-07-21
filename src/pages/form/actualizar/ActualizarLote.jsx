@@ -87,7 +87,7 @@ function ActualizarLote() {
 
     onSubmit: values => {
 
-      alert(JSON.stringify(values, null, 2));
+      
 
       toast("Lote Registrado")
 
