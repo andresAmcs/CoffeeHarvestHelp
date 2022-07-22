@@ -36,7 +36,6 @@ function EditarFinca() {
         const res = await fetch("https://coffeharvesthelp-api.herokuapp.com/api/v1/fincas/" + id);
         const data = await res.json();
         setFinca({tipoFinca: data.data.tipoFinca, nombreFinca: data.data.nombreFinca, ubicacionFinca: data.data.ubicacionFinca, colindantes: data.data.colindantes, totalHectareas: data.data.totalHectareas});
-        console.log(data)
     };
 
     useEffect(() => {
@@ -44,7 +43,6 @@ function EditarFinca() {
           await loadTask(params.id)
         })();
          
-        console.log('editar user id '+params.id)
         if (params.id) {
             loadTask(params.id);
         }
@@ -222,7 +220,7 @@ function EditarFinca() {
             </label>
             <div className="flex">
                 <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-home`}></i>
+                    <i className={`fa-solid fa-map`}></i>
                 </span>
                 
 
@@ -260,7 +258,7 @@ function EditarFinca() {
             </label>
             <div className="flex">
                 <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-key`}></i>
+                    <i className={`fa-solid fa-xmarks-lines`}></i>
                 </span>
                 
 
@@ -298,7 +296,7 @@ function EditarFinca() {
             </label>
             <div className="flex">
                 <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-key`}></i>
+                    <i className={`fa-solid fa-money-bill-1-wave`}></i>
                 </span>
                 
 

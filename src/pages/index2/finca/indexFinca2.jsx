@@ -18,7 +18,6 @@ const CatList = () => {
   const loadCats = async () => {
     const json = await getFincas();
     const data = dataToListFinca(json);
-    console.log(data)
     setCats(data);
 
   }

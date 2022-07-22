@@ -11,8 +11,7 @@ export const Table = ({data = []}) => {
   const loadTask = async (id) => {
     const res = await fetch("https://coffeharvesthelp-api.herokuapp.com/api/v1/lotes/" + id)
     const data = await res.json();
-    
-    console.log(data)
+ 
   };
 
   const params = useParams();

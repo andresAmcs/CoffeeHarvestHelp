@@ -205,7 +205,7 @@ function EditarLote() {
             </label>
             <div className="flex">
                 <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-home`}></i>
+                    <i className={`fa-solid fa-tree`}></i>
                 </span>
                 
 
@@ -243,7 +243,7 @@ function EditarLote() {
             </label>
             <div className="flex">
                 <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-home`}></i>
+                    <i className={`fa-solid fa-coffee`}></i>
                 </span>
                 
 
@@ -309,7 +309,7 @@ function EditarLote() {
             </label>
             <div className="flex">
                 <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-key`}></i>
+                    <i className={`fa-solid fa-ruler-combined`}></i>
                 </span>
                 
 
@@ -348,7 +348,7 @@ function EditarLote() {
             </label>
             <div className="flex">
                 <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-key`}></i>
+                    <i className={`fa-solid fa-calendar`}></i>
                 </span>
                 
 
@@ -386,7 +386,7 @@ function EditarLote() {
             </label>
             <div className="flex">
                 <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-key`}></i>
+                    <i className={`fa-solid fa-ruler-combined`}></i>
                 </span>
                 
 
@@ -424,7 +424,7 @@ function EditarLote() {
             </label>
             <div className="flex">
                 <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-key`}></i>
+                    <i className={`fa-solid fa-ruler-combined`}></i>
                 </span>
                 
 
@@ -462,7 +462,7 @@ function EditarLote() {
             </label>
             <div className="flex">
                 <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-key`}></i>
+                    <i className={`fa-solid fa-tree`}></i>
                 </span>
                 
 
@@ -511,7 +511,7 @@ function EditarLote() {
             </label>
             <div className="flex">
                 <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-key`}></i>
+                    <i className={`fa-solid fa-sun-plant-wilt`}></i>
                 </span>
                 
 
@@ -549,7 +549,7 @@ function EditarLote() {
             </label>
             <div className="flex">
                 <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-key`}></i>
+                    <i className={`fa-solid fa-poop`}></i>
                 </span>
                 
 
@@ -599,7 +599,7 @@ function EditarLote() {
             </label>
             <div className="flex">
                 <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-key`}></i>
+                    <i className={`fa-solid fa-bug`}></i>
                 </span>
                 
 

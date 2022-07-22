@@ -16,7 +16,7 @@ import IndexEmpleados from "../pages/index2/indexEmpleados2"
 import IndexFincas from "../pages/index2/finca/indexFinca2"
 import IndexLotes from "../pages/index2/lote/indexLote2"
 
-import IndexActividades from "./../pages/index/indexActividades"
+import IndexActividades from "../pages/index2/actividad/indexActividad2"
 import IndexRegistros from "../pages/index2/registro/indexRegistro2"
 
 import VisualizarEmpleados from "../pages/form/visualizar2/visualizarEmpleado"

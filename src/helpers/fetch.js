@@ -237,7 +237,8 @@ export const dataToListActividad = (json) =>{
   const data =json.data.map(item=>({
     
     id:item.id,
-    descripcion:item.descripcion
+    descripcion:item.descripcion,
+    valorTotal:item.valorTotal
   }))
   return data
 }

@@ -24,7 +24,6 @@ function VisualizarEmpleado() {
         const res = await fetch("https://coffeharvesthelp-api.herokuapp.com/api/v1/empleados/" + id);
         const data = await res.json();
         setUser({ nombre: data.data.nombre, genero: data.data.genero, correo: data.data.correo, pago: data.data.pago, tipoContrato: data.data.tipoContrato, fincaId: data.data.fincaId });
-    console.log(data);
     };
 
     useEffect(() => {

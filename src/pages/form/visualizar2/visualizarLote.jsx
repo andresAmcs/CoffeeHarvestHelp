@@ -44,7 +44,7 @@ function VisualizarFinca() {
                     plagas: data.data.plagas,
                     fincaId: data.data.fincaId,
         }); 
-    console.log(data);
+
     };
 
     useEffect(() => {
@@ -52,7 +52,7 @@ function VisualizarFinca() {
         await loadTask()
         })();
         
-        console.log('mostrar lotes id '+params.id)
+    
         if (params.id) {
         loadTask(params.id);
         // getCat(params.id)

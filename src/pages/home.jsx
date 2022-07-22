@@ -37,11 +37,6 @@ function Home(){
             
         })
 
-        console.log(a)
-        console.log(b)
-        console.log(c)
-        console.log(d)
-
         setCats([a,b,c,d]);
       }
       
@@ -53,12 +48,13 @@ function Home(){
         })();
       }, []);
 
+      var datos =[2750000,500000,4400000,4300000]
     return(
         <>
                 <Navbar buttons={estado}/>
                 <Card cards={lista}/>
                 
-                <Grafica datos={cats}/>
+                <Grafica datos={datos}/>
 
         </>
     )

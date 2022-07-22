@@ -11,7 +11,6 @@ export const Table = ({data = []}) => {
     const res = await fetch("https://coffeharvesthelp-api.herokuapp.com/api/v1/registroActividades/" + id)
     const data = await res.json();
     
-    console.log(data)
   };
 
   const params = useParams();
@@ -41,7 +40,10 @@ export const Table = ({data = []}) => {
               DESCRIPCION
           </th>
           <th scope="col" className="px-6 py-3">
-              Opciones
+              VALOR
+          </th>
+          <th scope="col" className="px-6 py-3">
+
           </th>
         </tr>
       </thead>
@@ -55,6 +57,9 @@ export const Table = ({data = []}) => {
                 </td>
                 <td scope="col" className="px-6 py-3">
                   {data.descripcion}
+                </td>
+                <td scope="col" className="px-6 py-3">
+                  {data.valorTotal}
                 </td>
                 <td scope="col" className=" ">
                   <button onClick={() => navigate(`/registro/${data.id}`)}><i className="mt-2 mx-5 fa-solid fa-eye text-green-500"></i></button>

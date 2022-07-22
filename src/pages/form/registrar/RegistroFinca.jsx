@@ -217,7 +217,7 @@ function RegistrarFinca() {
             </label>
             <div className="flex">
                 <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-key`}></i>
+                    <i className={`fa-solid fa-map`}></i>
                 </span>
                 
 
@@ -253,7 +253,7 @@ function RegistrarFinca() {
             </label>
             <div className="flex">
                 <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-key`}></i>
+                    <i className={`fa-solid fa-xmarks-lines`}></i>
                 </span>
                 
 
@@ -290,7 +290,7 @@ function RegistrarFinca() {
             </label>
             <div className="flex">
                 <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                    <i className={`fa-solid fa-key`}></i>
+                    <i className={`fa-solid fa-money-bill-1-wave`}></i>
                 </span>
                 
 
@@ -321,6 +321,7 @@ function RegistrarFinca() {
         </div>
 
       <button className='bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 border-b-4 border-amber-800 hover:border-amber-900 rounded flex mx-auto my-5' type="submit">Submit</button>
+      <button onClick={()=>(navigate("/indexFincas"))} className='bg-amber-600 hover:bg-amber-800 text-white font-bold py-2 px-4 border-b-4 border-amber-800 hover:border-amber-900 rounded flex mx-auto my-5'>Volver</button>
 
     </form>
 </div>

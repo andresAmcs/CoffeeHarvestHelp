@@ -11,7 +11,6 @@ export const Table = ({data = []}) => {
     const res = await fetch("https://coffeharvesthelp-api.herokuapp.com/api/v1/fincas/" + id)
     const data = await res.json();
     
-    console.log(data)
   };
 
   const params = useParams();
